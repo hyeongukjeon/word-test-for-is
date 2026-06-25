@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap");
+
 :root {
   color-scheme: light;
   font-size: 80%;
@@ -16,6 +18,8 @@
   --red: #ff667f;
   --red-bg: rgba(255, 230, 236, 0.68);
   --shadow: 0 26px 70px rgba(77, 74, 100, 0.18);
+  --font-cute: "Gaegu", "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", cursive;
+  --font-ui: "Gowun Dodum", "Gaegu", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --soft-shadow:
     0 24px 46px rgba(57, 58, 94, 0.16),
     0 8px 18px rgba(255, 255, 255, 0.36) inset,
@@ -40,9 +44,9 @@ body {
   background:
     linear-gradient(135deg, #dff4ff 0%, #f1ecff 31%, #ffe9ef 63%, #fff7df 100%);
   color: var(--ink);
-  font-family: "SF Pro Rounded", "Segoe UI Rounded", "Pretendard", "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  font-family: var(--font-cute);
   -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
 }
 
 body::before {
@@ -122,8 +126,9 @@ button {
   margin: auto 0 0;
   color: rgba(47, 48, 56, 0.42);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 700;
   text-align: center;
+  font-family: var(--font-ui);
 }
 
 .app-view {
@@ -154,15 +159,16 @@ button {
   margin: 0 0 4px;
   color: var(--accent);
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
+  font-family: var(--font-ui);
 }
 
 h1 {
   margin: 0;
   font-size: 1.35rem;
   line-height: 1.2;
-  font-weight: 850;
+  font-weight: 700;
 }
 
 .tab-panel {
@@ -186,7 +192,7 @@ h1 {
     inset 0 1px 0 rgba(255, 255, 255, 0.52);
   cursor: pointer;
   font-size: 0.78rem;
-  font-weight: 850;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -269,12 +275,13 @@ h1 {
   margin-bottom: 3px;
   color: var(--muted);
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 700;
+  font-family: var(--font-ui);
 }
 
 .status-row strong {
   font-size: 0.96rem;
-  font-weight: 850;
+  font-weight: 700;
 }
 
 .word-stage {
@@ -329,7 +336,8 @@ h1 {
   z-index: 1;
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 750;
+  font-weight: 700;
+  font-family: var(--font-ui);
 }
 
 .word-text {
@@ -340,8 +348,8 @@ h1 {
   overflow-wrap: anywhere;
   font-size: 2.45rem;
   line-height: 1.08;
-  font-weight: 900;
-  font-family: "SF Pro Rounded", "Segoe UI Rounded", "Arial Rounded MT Bold", "Pretendard", "SUIT", system-ui, sans-serif;
+  font-weight: 700;
+  font-family: var(--font-cute);
 }
 
 .attempt-pill {
@@ -355,7 +363,7 @@ h1 {
     linear-gradient(180deg, rgba(255, 242, 190, 0.76), rgba(255, 245, 210, 0.42));
   color: #6d5a22;
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 700;
   box-shadow:
     0 10px 20px rgba(155, 122, 44, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.88);
@@ -412,7 +420,7 @@ h1 {
   display: grid;
   place-items: center;
   font-size: 0.84rem;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .choice-meaning {
@@ -422,7 +430,7 @@ h1 {
   overflow-wrap: anywhere;
   line-height: 1.35;
   font-size: 0.98rem;
-  font-weight: 760;
+  font-weight: 700;
 }
 
 .choice-button.correct {
@@ -459,7 +467,7 @@ h1 {
   min-height: 22px;
   color: var(--muted);
   font-size: 0.92rem;
-  font-weight: 750;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -554,7 +562,7 @@ h1 {
   margin: 12px 0 0;
   color: var(--muted);
   text-align: center;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .detail-block + .detail-block {
@@ -568,7 +576,8 @@ h1 {
   margin-bottom: 7px;
   color: var(--accent);
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 700;
+  font-family: var(--font-ui);
 }
 
 .detail-block p {
@@ -597,7 +606,7 @@ h1 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.66);
   overflow-wrap: anywhere;
   font-size: 0.88rem;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .example {
@@ -619,7 +628,7 @@ h1 {
   min-height: 48px;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 900;
+  font-weight: 700;
   -webkit-backdrop-filter: blur(28px) saturate(175%);
   backdrop-filter: blur(28px) saturate(175%);
   box-shadow: var(--soft-shadow), 0 0 0 1px var(--edge);
