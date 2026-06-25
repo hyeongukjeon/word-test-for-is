@@ -544,6 +544,20 @@ const EXAMPLE_SENTENCES = {
 
 const BOOKMARK_STORAGE_KEY = "word-test-for-is-bookmarks-v1";
 
+
+const REACTION_ASSETS = {
+  correct: [
+    "Photo/Riku/KakaoTalk_20260625_145833162.jpg",
+    "Photo/Riku/KakaoTalk_20260625_145833162_01.jpg"
+  ],
+  wrong: [
+    "Photo/JH/KakaoTalk_20260625_145833162_02.jpg",
+    "Photo/JH/KakaoTalk_20260625_145833162_03.jpg"
+  ]
+};
+
+let reactionTimer = 0;
+
 const MODE_CONFIG = {
   exam: {
     eyebrow: "Mock Test",
@@ -625,7 +639,9 @@ const elements = {
   exampleSentence: document.querySelector("#exampleSentence"),
   nextButton: document.querySelector("#nextButton"),
   restartButton: document.querySelector("#restartButton"),
-  shuffleButton: document.querySelector("#shuffleButton")
+  shuffleButton: document.querySelector("#shuffleButton"),
+  reactionPop: document.querySelector("#reactionPop"),
+  reactionImage: document.querySelector("#reactionImage")
 };
 
 elements.enterButton.addEventListener("click", () => {
@@ -765,11 +781,13 @@ function selectOption(option, button) {
   const isCorrect = option.key === state.currentRound.entry.key;
   if (isCorrect) {
     button.classList.add("correct");
+    showReaction("correct");
     finishRound(true);
     return;
   }
 
   button.classList.add("wrong");
+  showReaction("wrong");
   button.disabled = true;
   state.wrongOptionKeys.add(option.key);
 
@@ -784,6 +802,22 @@ function selectOption(option, button) {
   const correctButton = elements.choices.querySelector(`[data-key="${cssEscape(state.currentRound.entry.key)}"]`);
   correctButton?.classList.add("correct");
   finishRound(false);
+}
+
+function showReaction(type) {
+  const assets = REACTION_ASSETS[type] || [];
+  if (!elements.reactionPop || !elements.reactionImage || assets.length === 0) return;
+
+  const image = assets[Math.floor(Math.random() * assets.length)];
+  window.clearTimeout(reactionTimer);
+  elements.reactionPop.classList.remove("show", "correct", "wrong");
+  void elements.reactionPop.offsetWidth;
+  elements.reactionImage.src = encodeURI(image);
+  elements.reactionPop.classList.add(type, "show");
+
+  reactionTimer = window.setTimeout(() => {
+    elements.reactionPop.classList.remove("show", "correct", "wrong");
+  }, 1050);
 }
 
 function finishRound(wasCorrect) {
@@ -846,9 +880,11 @@ function renderChips(container, values) {
 
 function buildOptions(entry) {
   const sourcePool = state.sessionPool.length >= 4 ? state.sessionPool : allWords;
-  const distractors = shuffle(uniqueByWord(sourcePool).filter((candidate) =>
-    candidate.key !== entry.key && getMainMeaning(candidate) !== getMainMeaning(entry)
-  ))
+  const correctMeaning = getMainMeaning(entry);
+  const distractors = shuffle(uniqueByWord(sourcePool).filter((candidate) => {
+    const meaning = getMainMeaning(candidate);
+    return candidate.key !== entry.key && meaning !== correctMeaning && isMeaningUsable(meaning);
+  }))
     .slice(0, 3)
     .map((candidate) => ({
       key: candidate.key,
@@ -856,13 +892,18 @@ function buildOptions(entry) {
     }));
 
   return shuffle([
-    { key: entry.key, label: getMainMeaning(entry) },
+    { key: entry.key, label: correctMeaning },
     ...distractors
   ]);
 }
 
 function getMainMeaning(entry) {
   return entry.meanings.slice(0, 2).join(", ");
+}
+
+function isMeaningUsable(meaning) {
+  const text = String(meaning || "").trim();
+  return text.length > 1 && !/[?\ufffd]/.test(text);
 }
 
 function buildExample(entry) {
