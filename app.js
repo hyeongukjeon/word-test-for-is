@@ -572,7 +572,7 @@ const highSchoolWords = words.map((entry) => ({
   key: `high:${entry.id}`,
   source: "high",
   sourceLabel: "High School 250",
-  example: EXAMPLE_SENTENCES[entry.id] || `The class discussed ${entry.word} during a short reading activity.`
+  example: EXAMPLE_SENTENCES[entry.id] || ""
 }));
 
 const tepsWords = uniqueByWord((window.TEPS_WORDS || []).map((entry) => ({
@@ -816,9 +816,15 @@ function disableRemainingChoices() {
 
 function revealDetails() {
   const entry = state.currentRound.entry;
+  const example = buildExample(entry);
+  const exampleBlock = elements.exampleSentence.closest(".detail-block");
+
   elements.mainMeaning.textContent = getMainMeaning(entry);
   renderChips(elements.synonyms, entry.synonyms);
-  elements.exampleSentence.textContent = buildExample(entry);
+  elements.exampleSentence.textContent = example;
+  if (exampleBlock) {
+    exampleBlock.hidden = example.length === 0;
+  }
   elements.details.hidden = false;
 }
 
@@ -860,7 +866,7 @@ function getMainMeaning(entry) {
 }
 
 function buildExample(entry) {
-  return entry.example || `The class discussed ${entry.word} during a short reading activity.`;
+  return entry.example || "";
 }
 
 function nextWord() {

@@ -146,29 +146,29 @@ languid|나른한, 힘없는|weak; sluggish; relaxed|The dog lay in a languid po
 debacle|대실패, 붕괴|fiasco; disaster; failure|The launch became a debacle after several systems failed.
 defer|연기하다, 미루다|postpone; delay; put off|The board chose to defer the decision until March.
 subtle|미묘한||
-tolerant|???||
+tolerant|관대한, 잘 참는|open-minded; accepting; patient|A tolerant teacher listens to different opinions before making a decision.
 dynamic|정력적인||
 tone|어조||
 style|방식||
 image|인상||
 obtain|얻다||
 assign|맡기다||
-settle|????, ????||
+settle|해결하다, 정착하다|resolve; decide; establish|The two sides agreed to settle the dispute before trial.
 distribute|나누어 주다||
 incorporate|포함하다||
 supplement|보충||
 bland|단조로운||
 brittle|불안정한||
-lenient|???||
+lenient|관대한, 너그러운|merciful; forgiving; mild|The judge was lenient because it was the defendant’s first offense.
 vanish|사라지다||
 concede|인정하다||
 restrain|억누르다||
-inherent|????, ???||
+inherent|내재적인, 타고난|intrinsic; built-in; innate|Every large project has inherent risks.
 prevalent|일반적인||
 inquisitive|호기심이 많은||
 barge into|~와 부딪치다||
 hang up on|~에 열중하다||
-called out on|????||
+called out on|지적받다, 비판받다|criticized; challenged; confronted|The manager was called out on the inaccurate figures in the report.
 shrewd|상황 판단이 빠른||
 notorious|악명 높은||
 discreet|신중한||
@@ -180,37 +180,37 @@ ingrain|스며들게 하다||
 press|누르다||
 trip|발을 헛디디다||
 drain|물을 빼내다||
-labeling|??? ???||
+labeling|라벨을 붙이는, 분류하는|tagging; naming; classifying|Labeling every box made the move easier.
 fulfill|이행하다||
 examine|검토하다||
 inspire|고무하다||
 sanitize|살균하다||
 compose|구성 하다||
 favor|호의||
-profit|이익 ［||
-implication|??, ??||
+profit|이익|gain; earnings; return|The company reported a small profit in the second quarter.
+implication|함축, 영향|suggestion; consequence; meaning|The implication of the decision was clear to everyone.
 specification|설명서||
 qualification|자격||
 furnish|제공하다||
-resolved|???||
+resolved|해결된, 결심한|settled; determined; decided|The technical issue was resolved before the meeting began.
 displace|대신하다||
-prone|~?? ??||
-confined|??, ???||
-receptive|? ?????||
+prone|~하기 쉬운|likely; inclined; susceptible|The coastal road is prone to flooding after heavy rain.
+confined|갇힌, 제한된|restricted; limited; enclosed|The study was confined to adults over the age of fifty.
+receptive|잘 받아들이는, 수용적인|open; responsive; accepting|The audience was receptive to the speaker’s proposal.
 competency|능 숙함||
-hindrance|방||
+hindrance|방해, 장애|obstacle; barrier; impediment|Poor communication became a hindrance to the project.
 blockage|장애물||
 derive|끌어내다||
 comprise|구성하다||
 propitiate|달래다||
 splinter|분열되다||
-discharging|????, ????||
+discharging|방출하는, 해고하는|releasing; emitting; dismissing|The factory was accused of discharging waste into the river.
 fracture|골절되다||
 commissioner|위원||
 predecessor|전임자||
 accomplice|공범||
 heedless|세심한 주의를 기울이지 않는||
-illegible|?? ???||
+illegible|읽기 어려운|unreadable; unclear; indecipherable|The signature was almost illegible.
 covert|비밀의||
 astute|약삭빠른||
 incisive|예리한||
@@ -224,7 +224,7 @@ cluster|무리||
 rancid|맛이 변한||
 torpid|무기력한||
 vapid|흥미롭지 못한||
-connoting|????||
+connoting|함축하는, 암시하는|implying; suggesting; indicating|The phrase was criticized for connoting social superiority.
 contend|주장하다||
 confound|어리둥절하게 만들다||
 founder|실패하다||
@@ -236,15 +236,15 @@ malice|악의||
 play|장난을 치다||
 advise|조언하다||
 repeat|반복하다||
-adjust|????, ????||
-oppose|????||
+adjust|조정하다, 적응하다|adapt; modify; regulate|New students need time to adjust to campus life.
+oppose|반대하다|resist; object to; be against|Several residents oppose the construction plan.
 conform|따르다||
 intense|극심한||
 various|여러 가지의||
 plentiful|풍부한||
 coat|덮다||
 stock|채우다||
-supply|제공하다 ［||
+supply|공급하다, 제공하다|provide; furnish; deliver|The charity supplied food and blankets after the flood.
 feasible|실현할 수 있는||
 amenable|말을 잘 듣는||
 ostensible|표면적으로는||
@@ -255,19 +255,19 @@ separation|분리||
 distribution|분배||
 petrify|겁에 질리게 만들다||
 absolve|용서하다||
-disrupt|방||
+disrupt|방해하다, 혼란시키다|disturb; interrupt; upset|The sudden outage disrupted the entire schedule.
 banish|추방 하다||
 dispel|떨쳐 버리다||
 ostracize|외면하다||
-relation|??||
+relation|관계, 관련|connection; relationship; link|The report examined the relation between sleep and memory.
 contact|연락||
 entry|입장||
-jumping the gun|???? ????||
-passing the buck|??? ????||
-showing me the ropes|??? ????||
+jumping the gun|성급하게 행동하기|acting too soon; rushing; premature action|Announcing the result before the votes were counted was jumping the gun.
+passing the buck|책임을 전가하기|shifting blame; avoiding responsibility|The department was accused of passing the buck instead of fixing the issue.
+showing me the ropes|요령을 알려주기|teaching the basics; guiding; training|A senior employee spent the morning showing me the ropes.
 stability|안정성||
 demand|요구||
-immersion|올두||
+immersion|몰두, 몰입|absorption; involvement; deep engagement|Language immersion helped the students speak more naturally.
 touch|만지다||
 realize|깨닫다||
 charm|매혹하다||
@@ -284,7 +284,7 @@ conversion|전환||
 transmission|전달||
 unfathomable|무슨 생각을 하는지 알 수 없는||
 dispensable|없어도 되는||
-expendable|????, ??? ??||
+expendable|소모품인, 없어도 되는|replaceable; disposable; nonessential|The backup equipment was considered expendable.
 trample|짓밟다||
 venture|모험||
 plummet|폭락||
@@ -316,8 +316,8 @@ docile|고분고분한||
 adroit|노련한||
 bawdy|야한||
 castigation|징계||
-obstruction|방||
-perturbation|??, ??||
+obstruction|방해, 장애물|barrier; blockage; interference|The fallen tree was an obstruction on the road.
+perturbation|동요, 불안|disturbance; agitation; disruption|The news caused visible perturbation among investors.
 intention|의도||
 attraction|매력||
 association|협회||
@@ -325,28 +325,28 @@ manage|관리하다||
 place|장소||
 claim|주장||
 report|보도||
-set on|'''올 몹시 원하다||
+set on|몹시 원하다, 결심하다|be determined; be intent on; want strongly|She was set on studying abroad despite the cost.
 fit into|~에 꼭 들어맞다||
-finish with|~으로 끝내다 ［||
+finish with|~으로 끝내다|end with; conclude with; close with|The lecture finished with a short question period.
 excessive|지나친||
 repressive|억압적인||
 demanding|요구가 많은||
 disclosure|밝혀진 사실||
 digression|탈선||
-testimonial|추천서 3||
+testimonial|추천서, 증언|recommendation; endorsement; statement|The applicant included a testimonial from her former supervisor.
 vigorous|활발한||
 incredulous|믿지 않는||
 vicarious|간접적인||
 gruesome|섬뜩한||
-hewn|??, ????||
-shorn|??||
-strewn|????||
-trodden|??||
+hewn|잘린, 다듬어진|cut; shaped; carved|The cabin was built from roughly hewn logs.
+shorn|깎인, 빼앗긴|cut; stripped; deprived|The sheep were shorn before summer.
+strewn|흩뿌려진|scattered; spread; littered|Leaves were strewn across the path.
+trodden|밟힌|stepped on; walked over; trampled|The grass was trodden flat by the crowd.
 credit|신용거래||
-load|짐||
-power|힘||
+load|짐, 부하|burden; cargo; weight|The truck carried a heavy load of timber.
+power|힘, 권력|strength; authority; energy|The committee has the power to approve the budget.
 precarious|불안정한||
-exuberant|생동감 넘치는 < 8시 뷔||
+exuberant|활기 넘치는, 생동감 있는|lively; energetic; enthusiastic|The crowd gave an exuberant cheer after the final goal.
 ominous|불길한||
 establish|설정하다||
 contribute|이바지하다||
@@ -357,7 +357,7 @@ affirm|단언하다||
 register|등록하다||
 evaluate|평가하다||
 succeed|성공하다||
-resolve|????||
+resolve|해결하다, 결심하다|settle; decide; determine|The talks failed to resolve the conflict.
 judgment|판단||
 observation|관찰||
 cooperation|협조||
@@ -379,7 +379,7 @@ pledge|맹세하다||
 impose|도입하다||
 impart|전하다||
 surpass|능가하다||
-fluctuate|변동을 거듭하다 24 동사어휘||
+fluctuate|변동하다, 오르내리다|vary; change; rise and fall|Fuel prices fluctuate throughout the year.
 burst|터지다||
 plunge|거꾸러지다||
 confide|털어놓다||
@@ -390,29 +390,29 @@ mercilessly|무자비하게||
 surmount|극복하다||
 exacerbate|악화시키다||
 flamboyant|이색적인||
-heinous|?????||
+heinous|극악무도한|atrocious; wicked; monstrous|The article described the attack as a heinous crime.
 insipid|맛이 없는||
 vivacious|명랑한||
 pugnacious|호전적인||
 belligerent|적대적인||
-jinx|트집올 잡다||
+jinx|징크스, 불운을 가져오다|bad luck; curse; hex|Fans thought the early celebration might jinx the team.
 rig|조작하다||
 cripple|불구로 만들다||
-lower|???||
+lower|낮추다|reduce; decrease; bring down|The company lowered prices to attract new customers.
 pause|잠시 멈추다||
 soften|부드러워지다||
 possible|가능한||
-convenient|펀리한||
+convenient|편리한, 알맞은|handy; suitable; practical|The hotel is convenient for the train station.
 comfortable|편안한||
-persuade|설득하다 35||
+persuade|설득하다|convince; influence; win over|The speaker tried to persuade voters to support the plan.
 award|수여하다||
 produce|제작하다||
 forward|전달하다||
 transmit|전송하다||
 swap|바꾸다||
 paste|붙이다||
-forge|????, ???||
-accurate|정화한||
+forge|위조하다, 만들어내다|fake; fabricate; create|Investigators found that the signature had been forged.
+accurate|정확한|correct; precise; exact|The report gave an accurate account of the incident.
 appreciative|감사하는||
 authoritative|권위 있는||
 flatter|아부하다||
@@ -421,10 +421,10 @@ condone|용서하다||
 feature|특징으로 하다||
 supervise|감독하다||
 recognize|인식하다||
-bringing about|????||
-passing out|????, ????||
-holding up|?????, ????||
-getting at|????, ????||
+bringing about|야기하기, 초래하기|causing; producing; leading to|The new policy was aimed at bringing about gradual change.
+passing out|기절하기, 나눠주기|fainting; distributing; handing out|Volunteers were passing out flyers at the entrance.
+holding up|지연시키기, 떠받치기|delaying; supporting; lifting|A minor error was holding up the approval process.
+getting at|의미하다, 암시하다|implying; suggesting; hinting|I could not understand what the speaker was getting at.
 wily|교활한||
 stoic|냉정한||
 pallid|창백한||
@@ -436,22 +436,22 @@ review|검토하다||
 pretend|가장하다||
 equation|방정식||
 transition|전환||
-achievements|??||
+achievements|성취, 업적|accomplishments; successes; attainments|Her achievements were recognized at the ceremony.
 observe|관찰하다||
-classified|???, ???||
+classified|분류된, 기밀의|categorized; secret; confidential|The files were classified for national security reasons.
 arrange|배열하다||
 inspect|검사하다||
 grapple|맞붙다||
 wrangle|다투다||
 extend|확장하다||
 deepen|깊게 하다||
-multiply|????, ???||
+multiply|증가하다, 곱하다|increase; reproduce; calculate|Small errors can multiply when data is copied repeatedly.
 timid|소심한||
 static|정적인||
 serene|평온한||
 evict|추방하다||
 detain|억류하다||
-vacate|비우다 ［||
+vacate|비우다, 떠나다|leave; empty; evacuate|Guests must vacate the room before noon.
 invoke|들먹이다||
 exercise|행사하다||
 prudish|고상한 체하는||
@@ -466,8 +466,8 @@ infuriate|극도로 화나게 만들다||
 transcend|초월하다||
 commotion|소동||
 consolation|위로||
-emancipation|??||
-fiends|???, ????||
+emancipation|해방|liberation; release; freedom|The speech referred to the emancipation of enslaved people.
+fiends|악한들, 중독자들|villains; addicts; fanatics|The novel portrays the villains as ruthless fiends.
 confidant|비밀 상담자||
 insurgent|반란자||
 rescind|철회하다||
@@ -476,11 +476,11 @@ repudiate|부인하다||
 gimmick|술책||
 schism|분열||
 fissure|균열||
-embezzling|????||
+embezzling|횡령하는|misappropriating; stealing; defrauding|The accountant was accused of embezzling company funds.
 defraud|사기 치다||
-swindle|사취하다 태졜||
+swindle|사취하다, 속이다|cheat; defraud; deceive|The con artist tried to swindle investors out of their savings.
 despondent|낙담한||
-derogatory|비는호너는||
+derogatory|경멸적인, 비하하는|insulting; disparaging; belittling|The article was criticized for its derogatory language.
 operation|작업||
 imagination|상상력||
 transportation|교통수단||
@@ -491,17 +491,17 @@ stain|얼룩지게 하다||
 bruise|멍들게 하다||
 punch|펀치||
 relieve|경감하다||
-determine|결정츠||
-impersonate|흉나/ 내［자||
+determine|결정하다|decide; establish; find out|The test will determine the final ranking.
+impersonate|흉내 내다, 사칭하다|imitate; pretend to be; pose as|The scammer tried to impersonate a bank employee.
 provoke|자극하다||
-aggravate|?????||
+aggravate|악화시키다|worsen; intensify; exacerbate|Lack of sleep can aggravate stress.
 bath|목욕시키다||
 splash|물을 끼얹다||
 moisten|촉촉하게 하다||
 gaudy|화려한||
 furtive|은밀한||
 cryptic|비밀의||
-severing|??||
+severing|끊는, 절단하는|cutting off; separating; breaking|The storm damaged the bridge, severing the only road to the village.
 recant|철회하다||
 prove|증명하다||
 donate|기부하다||
@@ -521,7 +521,7 @@ compete|경쟁하다||
 modify|수정하다||
 invade|침략하다||
 collapse|붕괴하다||
-endured|??||
+endured|견딘|withstood; tolerated; suffered through|The workers endured harsh conditions during the rescue effort.
 evasion|회피||
 surrender|항복||
 abduction|납치||
@@ -539,14 +539,14 @@ subsidiary|자회사의||
 resilient|회복력 있는||
 perilous|위험한||
 incendiary|방화의||
-discretionary|???||
-inadvertent|????||
+discretionary|재량의|optional; elective; flexible|The manager has a small discretionary budget.
+inadvertent|부주의한, 의도치 않은|unintentional; accidental; careless|An inadvertent error delayed the shipment.
 collude|공모하다||
 articulate|명확하게 표현하다||
-audacity|???, ???||
+audacity|대담함, 뻔뻔함|boldness; nerve; daring|She had the audacity to challenge the decision publicly.
 bravado|허세||
 temerity|무모함||
-orientate|방향울 정하다||
+orientate|방향을 정하다|orient; position; adjust|The guide helped visitors orientate themselves in the museum.
 acclimate|적응시키다||
 confiscate|압수하다||
 agile|민첩한||
