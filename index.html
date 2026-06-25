@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mobile-first English vocabulary quiz for IS.">
+  <meta name="theme-color" content="#fff7c7">
+  <title>Word Test for IS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="landing-page" id="landingPage">
+      <div class="landing-center">
+        <p class="eyebrow">Vocabulary Trainer</p>
+        <h1 class="landing-title">Word Test for IS</h1>
+        <button class="primary-button enter-button" id="enterButton" type="button">Enter</button>
+      </div>
+      <p class="copyright">copyright 2026 by Hyeonguk Jeon</p>
+    </section>
+
+    <section class="app-view" id="appView" hidden>
+      <header class="top-panel">
+        <div>
+          <p class="eyebrow" id="modeEyebrow">Mock Test</p>
+          <h1 id="modeTitle">Word Test</h1>
+        </div>
+        <button class="icon-button" id="shuffleButton" type="button" aria-label="단어 순서 섞기" title="단어 순서 섞기">
+          <span aria-hidden="true">↻</span>
+        </button>
+      </header>
+
+      <nav class="tab-panel" aria-label="단어장 탭">
+        <button class="tab-button active" type="button" data-tab="exam">모의고사 30개</button>
+        <button class="tab-button" type="button" data-tab="high">High School 250</button>
+        <button class="tab-button" type="button" data-tab="teps">Teps 기출 문제집 어휘</button>
+        <button class="tab-button" type="button" data-tab="bookmarks">북마크</button>
+      </nav>
+
+      <section class="bookmark-panel" id="bookmarkPanel" hidden>
+        <div class="bookmark-head">
+          <div>
+            <p class="eyebrow">Saved Words</p>
+            <h2>북마크</h2>
+          </div>
+          <button class="secondary-button small-action" id="bookmarkQuizButton" type="button">북마크 테스트</button>
+        </div>
+        <div class="bookmark-list" id="bookmarkList"></div>
+        <p class="empty-message" id="emptyBookmarks">아직 저장된 단어가 없어요.</p>
+      </section>
+
+      <section class="quiz-panel" id="quizPanel">
+        <section class="status-row" aria-label="학습 상태">
+          <div>
+            <span class="status-label">진행</span>
+            <strong id="progressText">1 / 30</strong>
+          </div>
+          <div>
+            <span class="status-label">정답</span>
+            <strong id="scoreText">0</strong>
+          </div>
+          <div>
+            <span class="status-label">연속</span>
+            <strong id="streakText">0</strong>
+          </div>
+        </section>
+
+        <section class="word-stage" aria-live="polite">
+          <button class="bookmark-button" id="bookmarkButton" type="button" aria-label="북마크 저장" title="북마크 저장">☆</button>
+          <div class="word-number" id="wordNumber">No. 1</div>
+          <div class="word-text" id="wordText">inevitable</div>
+          <div class="attempt-pill" id="attemptText">첫 번째 선택</div>
+        </section>
+
+        <section class="choices" id="choices" aria-label="뜻 보기"></section>
+
+        <section class="feedback" id="feedback" aria-live="polite"></section>
+
+        <section class="details" id="details" hidden>
+          <div class="detail-block">
+            <span class="detail-label">주요 뜻</span>
+            <p id="mainMeaning"></p>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">동의어</span>
+            <div class="chip-row" id="synonyms"></div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">예문</span>
+            <p class="example" id="exampleSentence"></p>
+          </div>
+        </section>
+
+        <nav class="bottom-actions">
+          <button class="secondary-button" id="restartButton" type="button">처음부터</button>
+          <button class="primary-button" id="nextButton" type="button" disabled>다음 단어</button>
+        </nav>
+      </section>
+    </section>
+  </main>
+
+  <script src="teps-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

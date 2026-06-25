@@ -1,0 +1,12 @@
+# Source files used for extraction, not needed for GitHub Pages
+OCR_Teps*.pdf
+KakaoTalk_*.png
+
+# Local extraction backups
+teps-choice-vocabulary.json
+teps-full-vocabulary-backup.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
