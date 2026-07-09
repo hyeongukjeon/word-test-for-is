@@ -289,6 +289,89 @@ const words = RAW_WORDS.trim().split("\n").map((line) => {
   };
 });
 
+const REQUEST_WORDS = `
+1|set|놓다, 설정하다|place; fix; arrange
+2|fill|채우다, 메우다|load; occupy; complete
+3|give|주다, 제공하다|provide; hand; offer
+4|open|열다, 열려 있는|unlock; begin; accessible
+5|arrange|마련하다, 정리하다/배열하다|organize; prepare; sort
+6|regulate|규제하다, 조절하다|control; adjust; govern
+7|establish|설립하다, 수립하다|found; create; set up
+8|distribute|분배하다, 유통시키다|hand out; allocate; circulate
+9|pass|지나가다/통과하다, 전달하다|go by; transfer; approve
+10|book|책, 예약하다|volume; reserve; schedule
+11|store|상점, 저장하다|shop; keep; preserve
+12|stock|재고, 비축하다|inventory; supply; store
+13|call out|부르다/호출하다, 소리쳐 말하다|summon; shout; criticize
+14|tone down|누그러뜨리다, 부드럽게 하다|soften; moderate; reduce
+15|back out of|빠지다, 약속을 저버리다|withdraw; cancel; retreat
+16|stand up for|옹호하다, 지지하다|defend; support; advocate
+17|divergent|갈라지는, 서로 다른|different; separating; varying
+18|persistent|끈질긴, 지속되는|continuous; tenacious; lasting
+19|redundant|불필요한, 쓸모없는|unnecessary; surplus; extra
+20|extravagant|낭비하는/사치스러운, 과장된|wasteful; lavish; excessive
+21|braced|버팀대를 댄, 대비한|supported; reinforced; prepared
+22|clogged|막힌, 막혀 있는|blocked; obstructed; jammed
+23|drowned|익사한, 물에 잠긴|submerged; overwhelmed; soaked
+24|squeezed|짠, 압착된|pressed; compressed; forced
+25|tolerant|관대한, 잘 견디는|accepting; patient; resistant
+26|discreet|신중한, 조심스러운|careful; tactful; prudent
+27|ambiguous|애매모호한, 여러 가지로 해석 가능한|unclear; vague; equivocal
+28|meticulous|꼼꼼한, 세심한|careful; thorough; precise
+29|unintuitive|직관적이지 않은, 이해하기 어려운|counterintuitive; unclear; awkward
+30|implausible|믿기 어려운, 타당해 보이지 않는|unlikely; unbelievable; doubtful
+31|indisputable|반론의 여지가 없는, 부인할 수 없는|undeniable; unquestionable; certain
+32|unpersuasive|설득력 없는, 설득하지 못하는|unconvincing; weak; ineffective
+33|feasible|실현 가능한, 실행할 수 있는|possible; workable; practical
+34|amicable|우호적인, 원만한|friendly; peaceful; cordial
+35|innocuous|악의 없는, 무해한|harmless; safe; inoffensive
+36|prosperous|번영한, 번창한|successful; thriving; wealthy
+37|feckless|무기력한, 무책임한|irresponsible; weak; ineffective
+38|maniacal|미친 듯한, 광적인|frantic; wild; crazed
+39|stupendous|엄청나게 큰, 거대한|enormous; amazing; tremendous
+40|despondent|낙담한, 실의에 빠진|dejected; depressed; hopeless
+41|cried|울었다, 외쳤다|wept; shouted; called
+42|argued|다투었다, 주장했다|debated; claimed; contended
+43|worried|걱정한, 걱정스러운|anxious; concerned; troubled
+44|guessed|추측했다, 짐작했다|estimated; supposed; inferred
+45|goods|상품/제품, 재산/화물|products; merchandise; cargo
+46|events|사건, 행사|happenings; occasions; competitions
+47|chances|가능성, 기회|possibilities; opportunities; odds
+48|motions|움직임, 동작|movements; gestures; actions
+49|served|제공했다, 차려 주었다|provided; delivered; attended
+50|granted|승인했다/허락했다, 인정했다|allowed; approved; admitted
+51|donated|기부했다, 기증했다|gave; contributed; presented
+52|supplied|공급했다, 제공했다|provided; furnished; delivered
+53|entry|입장/등장, 출입권/가입|entrance; admission; access
+54|access|접근/입장, 접근권/접속|approach; entry; connection
+55|passage|통로, 구절|corridor; excerpt; section
+56|privilege|특권, 특혜|advantage; right; benefit
+57|liability|법적 책임, 부채|responsibility; debt; burden
+58|exposure|노출, 폭로|contact; revelation; publicity
+59|immunity|면역력, 면제|resistance; exemption; protection
+60|consensus|합의, 의견 일치|agreement; accord; unity
+61|clientele|고객들, 의뢰인들|customers; clients; patrons
+62|provisions|식량/물자, 공급/규정|supplies; food; terms
+63|components|구성 요소, 부품|parts; elements; pieces
+64|merchandise|상품, 물품|goods; products; wares
+65|superstitions|미신, 미신적 믿음|beliefs; myths; folklore
+66|manuscripts|원고, 필사본|drafts; texts; copies
+67|submissions|제출/제출물, 항복/굴복|documents; proposals; surrender
+68|monuments|기념물, 기념비|memorials; statues; landmarks
+69|barriers|장벽, 장애물|obstacles; blocks; walls
+70|margins|여백, 차이/이윤폭|edges; gaps; profits
+71|limitations|제한, 한계|limits; restrictions; constraints
+72|boundaries|경계, 한계선|borders; limits; edges
+73|featuring|특징으로 하는, 포함하는|including; presenting; highlighting
+74|infringing|위반하는, 침해하는|violating; breaching; encroaching
+75|embarking|승선하는, 착수하는|boarding; starting; undertaking
+76|elaborating|자세히 설명하는, 정교하게 만드는|explaining; expanding; detailing
+77|omission|생략, 누락|exclusion; deletion; absence
+78|deflection|굴절, 편향|deviation; bending; turning
+79|contraction|수축/축소, 축약형|shrinking; reduction; shortening
+80|suppression|진압, 억제|repression; restraint; control
+`;
+
 const EXAMPLE_SENTENCES = {
   1: "The judge said an appeal was inevitable after the controversial verdict.",
   2: "The museum installed a sophisticated lighting system to protect the paintings.",
@@ -574,6 +657,11 @@ const MODE_CONFIG = {
     title: "Teps 기출 문제집 어휘",
     description: "OCR TEPS 기출 답 PDF 추출 어휘"
   },
+  request: {
+    eyebrow: "Requested Words",
+    title: "인서요청추가단어",
+    description: "이미지 선지 80개"
+  },
   bookmarks: {
     eyebrow: "Saved Words",
     title: "북마크",
@@ -589,6 +677,20 @@ const highSchoolWords = words.map((entry) => ({
   example: EXAMPLE_SENTENCES[entry.id] || ""
 }));
 
+const requestWords = REQUEST_WORDS.trim().split("\n").map((line) => {
+  const [id, word, meaningText, synonymText = ""] = line.split("|").map((part) => part.trim());
+  return {
+    id: Number(id),
+    word,
+    meanings: meaningText.split(",").map((part) => part.trim()),
+    synonyms: synonymText.split(";").map((part) => part.trim()).filter(Boolean),
+    key: `request:${id}`,
+    source: "request",
+    sourceLabel: "인서요청추가단어",
+    example: ""
+  };
+});
+
 const tepsWords = uniqueByWord((window.TEPS_WORDS || []).map((entry) => ({
   ...entry,
   key: `teps:${normalizeWord(entry.word)}`,
@@ -596,7 +698,7 @@ const tepsWords = uniqueByWord((window.TEPS_WORDS || []).map((entry) => ({
   sourceLabel: "TEPS 기출 어휘"
 })));
 
-const allWords = uniqueByWord([...highSchoolWords, ...tepsWords]);
+const allWords = uniqueByWord([...highSchoolWords, ...tepsWords, ...requestWords]);
 
 const state = {
   activeMode: "exam",
@@ -684,7 +786,8 @@ function startMode(mode) {
   const poolByMode = {
     exam: shuffle(allWords).slice(0, 30),
     high: highSchoolWords,
-    teps: tepsWords
+    teps: tepsWords,
+    request: requestWords
   };
 
   startQuiz(mode, poolByMode[mode] || allWords);
