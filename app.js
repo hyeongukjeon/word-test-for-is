@@ -1123,8 +1123,8 @@ const REACTION_ASSETS = {
   correct: [
     "Photo/Correct Answer/KakaoTalk_20260625_145833162.jpg",
     "Photo/Correct Answer/KakaoTalk_20260625_145833162_01.jpg",
-    "Photo/Correct Answer/스크린샷 2026-07-28 170333.png",
-    "Photo/Correct Answer/스크린샷 2026-07-28 170422.png"
+    "Photo/Correct Answer/correct-03.jpg",
+    "Photo/Correct Answer/correct-04.jpg"
   ],
   wrong: [
     "Photo/Wrong Answer/15392582_1172855_1953_org.jpg",
@@ -1133,6 +1133,9 @@ const REACTION_ASSETS = {
   ]
 };
 
+const reactionBags = { correct: [], wrong: [] };
+const lastReactionAssets = { correct: "", wrong: "" };
+const reactionPreloads = new Map();
 let reactionTimer = 0;
 let reactionSequence = 0;
 
@@ -1240,6 +1243,8 @@ const elements = {
   reactionPop: document.querySelector("#reactionPop"),
   reactionImage: document.querySelector("#reactionImage")
 };
+
+preloadReactionAssets();
 
 elements.enterButton.addEventListener("click", () => {
   elements.landingPage.hidden = true;
@@ -1402,25 +1407,83 @@ function selectOption(option, button) {
   finishRound(false);
 }
 
-function showReaction(type) {
-  const assets = REACTION_ASSETS[type] || [];
-  if (!elements.reactionPop || !elements.reactionImage || assets.length === 0) return;
+function preloadReactionAssets() {
+  Object.values(REACTION_ASSETS).flat().forEach((asset) => {
+    const image = new Image();
+    image.decoding = "async";
+    image.src = encodeURI(asset);
+    reactionPreloads.set(asset, image);
+  });
+}
 
-  const image = assets[Math.floor(Math.random() * assets.length)];
+function getNextReactionAsset(type) {
+  const assets = REACTION_ASSETS[type] || [];
+  if (assets.length === 0) return "";
+
+  if (reactionBags[type].length === 0) {
+    const nextBag = shuffle(assets);
+    if (nextBag.length > 1 && nextBag[0] === lastReactionAssets[type]) {
+      [nextBag[0], nextBag[1]] = [nextBag[1], nextBag[0]];
+    }
+    reactionBags[type] = nextBag;
+  }
+
+  const asset = reactionBags[type].shift();
+  lastReactionAssets[type] = asset;
+  return asset;
+}
+
+function showReaction(type) {
+  const image = getNextReactionAsset(type);
+  if (!elements.reactionPop || !elements.reactionImage || !image) return;
+
   const sequence = ++reactionSequence;
   window.clearTimeout(reactionTimer);
   elements.reactionPop.classList.remove("show", "correct", "wrong");
-  void elements.reactionPop.offsetWidth;
-  elements.reactionImage.src = encodeURI(image);
-  elements.reactionPop.setAttribute("aria-hidden", "false");
-  elements.reactionPop.classList.add(type, "show");
+  elements.reactionPop.setAttribute("aria-hidden", "true");
+  elements.reactionImage.onload = null;
+  elements.reactionImage.onerror = null;
 
-  reactionTimer = window.setTimeout(() => {
+  let revealStarted = false;
+  const reveal = () => {
+    if (revealStarted || sequence !== reactionSequence) return;
+    revealStarted = true;
+    elements.reactionImage.onload = null;
+    elements.reactionImage.onerror = null;
+
+    const startAnimation = () => {
+      if (sequence !== reactionSequence) return;
+      elements.reactionPop.classList.remove("show", "correct", "wrong");
+      void elements.reactionPop.offsetWidth;
+      elements.reactionPop.setAttribute("aria-hidden", "false");
+      elements.reactionPop.classList.add(type, "show");
+
+      reactionTimer = window.setTimeout(() => {
+        if (sequence !== reactionSequence) return;
+        elements.reactionPop.classList.remove("show", "correct", "wrong");
+        elements.reactionPop.setAttribute("aria-hidden", "true");
+        elements.reactionImage.removeAttribute("src");
+      }, 1050);
+    };
+
+    if (typeof elements.reactionImage.decode === "function") {
+      elements.reactionImage.decode().catch(() => {}).finally(startAnimation);
+    } else {
+      startAnimation();
+    }
+  };
+
+  elements.reactionImage.onload = reveal;
+  elements.reactionImage.onerror = () => {
     if (sequence !== reactionSequence) return;
-    elements.reactionPop.classList.remove("show", "correct", "wrong");
     elements.reactionPop.setAttribute("aria-hidden", "true");
     elements.reactionImage.removeAttribute("src");
-  }, 1050);
+  };
+  elements.reactionImage.src = encodeURI(image);
+
+  if (elements.reactionImage.complete && elements.reactionImage.naturalWidth > 0) {
+    reveal();
+  }
 }
 
 function finishRound(wasCorrect) {
