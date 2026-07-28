@@ -1124,12 +1124,21 @@ const REACTION_ASSETS = {
     "Photo/Correct Answer/KakaoTalk_20260625_145833162.jpg",
     "Photo/Correct Answer/KakaoTalk_20260625_145833162_01.jpg",
     "Photo/Correct Answer/correct-03.jpg",
-    "Photo/Correct Answer/correct-04.jpg"
+    "Photo/Correct Answer/correct-04.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182507458.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182507458_01.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182507458_02.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182507458_03.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182755941.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182755941_01.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182755941_02.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260728_182755941_03.jpg"
   ],
   wrong: [
     "Photo/Wrong Answer/15392582_1172855_1953_org.jpg",
     "Photo/Wrong Answer/KakaoTalk_20260625_145833162_02.jpg",
-    "Photo/Wrong Answer/KakaoTalk_20260625_145833162_03.jpg"
+    "Photo/Wrong Answer/KakaoTalk_20260625_145833162_03.jpg",
+    "Photo/Wrong Answer/KakaoTalk_20260728_182755941_04.jpg"
   ]
 };
 
@@ -1463,7 +1472,7 @@ function showReaction(type) {
         elements.reactionPop.classList.remove("show", "correct", "wrong");
         elements.reactionPop.setAttribute("aria-hidden", "true");
         elements.reactionImage.removeAttribute("src");
-      }, 1050);
+      }, 1500);
     };
 
     if (typeof elements.reactionImage.decode === "function") {
