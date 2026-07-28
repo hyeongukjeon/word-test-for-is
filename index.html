@@ -3,18 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mobile-first English vocabulary quiz for IS.">
+  <meta name="description" content="Mobile-first English vocabulary and reading tests for IS.">
   <meta name="theme-color" content="#fff7c7">
-  <title>Word Test for IS</title>
-  <link rel="stylesheet" href="styles.css?v=20260728-reaction4">
+  <title>Test for IS</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css?v=20260728-reading1">
 </head>
 <body>
   <main class="app-shell">
     <section class="landing-page" id="landingPage">
       <div class="landing-center">
-        <p class="eyebrow">Vocabulary Trainer</p>
-        <h1 class="landing-title">Word Test for IS</h1>
-        <button class="primary-button enter-button" id="enterButton" type="button">Enter</button>
+        <p class="eyebrow">English Study</p>
+        <h1 class="landing-title">Test for IS</h1>
+        <div class="landing-paths" aria-label="테스트 선택">
+          <button class="landing-choice reading-choice" id="readingEntryButton" type="button">
+            <span class="landing-choice-mark" aria-hidden="true">R</span>
+            <span>
+              <small>READING</small>
+              <strong>독해 테스트</strong>
+            </span>
+          </button>
+          <button class="landing-choice vocabulary-choice" id="vocabularyEntryButton" type="button">
+            <span class="landing-choice-mark" aria-hidden="true">V</span>
+            <span>
+              <small>VOCABULARY</small>
+              <strong>단어 테스트</strong>
+            </span>
+          </button>
+        </div>
       </div>
       <p class="copyright">copyright 2026 by Hyeonguk Jeon</p>
     </section>
@@ -25,9 +41,14 @@
           <p class="eyebrow" id="modeEyebrow">Mock Test</p>
           <h1 id="modeTitle">Word Test</h1>
         </div>
-        <button class="icon-button" id="shuffleButton" type="button" aria-label="단어 순서 섞기" title="단어 순서 섞기">
-          <span aria-hidden="true">↻</span>
-        </button>
+        <div class="top-actions">
+          <button class="icon-button" id="vocabularyHomeButton" type="button" aria-label="첫 화면" title="첫 화면">
+            <span aria-hidden="true">⌂</span>
+          </button>
+          <button class="icon-button" id="shuffleButton" type="button" aria-label="단어 순서 섞기" title="단어 순서 섞기">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </div>
       </header>
 
       <nav class="tab-panel" aria-label="단어장 탭">
@@ -52,18 +73,9 @@
 
       <section class="quiz-panel" id="quizPanel">
         <section class="status-row" aria-label="학습 상태">
-          <div>
-            <span class="status-label">진행</span>
-            <strong id="progressText">1 / 30</strong>
-          </div>
-          <div>
-            <span class="status-label">정답</span>
-            <strong id="scoreText">0</strong>
-          </div>
-          <div>
-            <span class="status-label">연속</span>
-            <strong id="streakText">0</strong>
-          </div>
+          <div><span class="status-label">진행</span><strong id="progressText">1 / 30</strong></div>
+          <div><span class="status-label">정답</span><strong id="scoreText">0</strong></div>
+          <div><span class="status-label">연속</span><strong id="streakText">0</strong></div>
         </section>
 
         <section class="word-stage" aria-live="polite">
@@ -74,27 +86,86 @@
         </section>
 
         <section class="choices" id="choices" aria-label="뜻 보기"></section>
-
         <section class="feedback" id="feedback" aria-live="polite"></section>
 
         <section class="details" id="details" hidden>
-          <div class="detail-block">
-            <span class="detail-label">주요 뜻</span>
-            <p id="mainMeaning"></p>
-          </div>
-          <div class="detail-block">
-            <span class="detail-label">동의어</span>
-            <div class="chip-row" id="synonyms"></div>
-          </div>
-          <div class="detail-block">
-            <span class="detail-label">예문</span>
-            <p class="example" id="exampleSentence"></p>
-          </div>
+          <div class="detail-block"><span class="detail-label">주요 뜻</span><p id="mainMeaning"></p></div>
+          <div class="detail-block"><span class="detail-label">동의어</span><div class="chip-row" id="synonyms"></div></div>
+          <div class="detail-block"><span class="detail-label">예문</span><p class="example" id="exampleSentence"></p></div>
         </section>
 
         <nav class="bottom-actions">
           <button class="secondary-button" id="restartButton" type="button">처음부터</button>
           <button class="primary-button" id="nextButton" type="button" disabled>다음 단어</button>
+        </nav>
+      </section>
+    </section>
+
+    <section class="reading-view" id="readingView" hidden>
+      <header class="reading-header">
+        <button class="icon-button" id="readingHomeButton" type="button" aria-label="첫 화면" title="첫 화면">
+          <span aria-hidden="true">⌂</span>
+        </button>
+        <div>
+          <p class="reading-eyebrow">READING TEST</p>
+          <h1>독해 테스트</h1>
+        </div>
+        <div class="reading-header-spacer" aria-hidden="true"></div>
+      </header>
+
+      <nav class="reading-tab-panel" aria-label="독해 유형">
+        <button class="reading-tab reading-tab-wide active" type="button" data-reading-mode="mini">Mini 모의고사</button>
+        <button class="reading-tab" type="button" data-reading-mode="blank">빈칸유형</button>
+        <button class="reading-tab" type="button" data-reading-mode="connector">접속사문제</button>
+        <button class="reading-tab" type="button" data-reading-mode="outlier">틀린문장찾기</button>
+        <button class="reading-tab" type="button" data-reading-mode="topic">주제찾기</button>
+        <button class="reading-tab" type="button" data-reading-mode="correct">Correct문제</button>
+        <button class="reading-tab" type="button" data-reading-mode="inference">추론문제</button>
+      </nav>
+
+      <section class="reading-set-picker" id="readingSetPicker">
+        <p class="reading-section-label">MINI SET</p>
+        <div class="reading-set-list">
+          <button class="reading-set-button" type="button" data-reading-set="set1"><strong>SET 1</strong><span>24문제</span></button>
+          <button class="reading-set-button" type="button" data-reading-set="set2"><strong>SET 2</strong><span>24문제</span></button>
+          <button class="reading-set-button" type="button" data-reading-set="bonus"><strong>추가 문제</strong><span>6문제</span></button>
+        </div>
+      </section>
+
+      <section class="reading-quiz" id="readingQuiz" hidden>
+        <section class="reading-status" aria-label="독해 상태">
+          <div><span>진행</span><strong id="readingProgress">1 / 24</strong></div>
+          <div><span>정답</span><strong id="readingScore">0</strong></div>
+          <div><span>유형</span><strong id="readingCategory">빈칸</strong></div>
+        </section>
+
+        <article class="reading-question-card" id="readingQuestionCard">
+          <div class="reading-question-meta">
+            <span id="readingSetLabel">SET 1</span>
+            <strong id="readingNumber">No. 1</strong>
+          </div>
+          <div class="reading-passage" id="readingPassage"></div>
+          <h2 class="reading-question" id="readingQuestion"></h2>
+        </article>
+
+        <section class="reading-choices" id="readingChoices" aria-label="독해 보기"></section>
+        <p class="reading-feedback" id="readingFeedback" aria-live="polite"></p>
+
+        <section class="reading-explanation" id="readingExplanation" hidden>
+          <span>한국어 해설</span>
+          <strong id="readingAnswerText"></strong>
+          <p id="readingExplanationText"></p>
+        </section>
+
+        <section class="reading-complete" id="readingComplete" hidden>
+          <p class="reading-section-label">RESULT</p>
+          <strong id="readingFinalScore">0 / 24</strong>
+          <p id="readingFinalMessage">완료했습니다.</p>
+        </section>
+
+        <nav class="reading-actions">
+          <button class="secondary-button" id="readingRestartButton" type="button">다시 풀기</button>
+          <button class="primary-button" id="readingNextButton" type="button" disabled>다음 문제</button>
         </nav>
       </section>
     </section>
@@ -105,7 +176,8 @@
     <img id="reactionImage" alt="" decoding="async">
   </div>
 
-  <script src="teps-data.js?v=20260728-reaction4"></script>
-  <script src="app.js?v=20260728-reaction4"></script>
+  <script src="teps-data.js?v=20260728-reading1"></script>
+  <script src="reading-data.js?v=20260728-reading1"></script>
+  <script src="app.js?v=20260728-reading1"></script>
 </body>
 </html>

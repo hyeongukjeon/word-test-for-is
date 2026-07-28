@@ -1221,10 +1221,33 @@ const state = {
   wrongOptionKeys: new Set()
 };
 
+const READING_CATEGORY_LABELS = {
+  blank: "빈칸",
+  connector: "접속사",
+  outlier: "틀린 문장",
+  topic: "주제",
+  correct: "Correct",
+  inference: "추론"
+};
+
+const readingQuestions = window.READING_QUESTIONS || [];
+const readingState = {
+  mode: "mini",
+  sessionLabel: "",
+  pool: [],
+  currentPosition: 0,
+  score: 0,
+  locked: false
+};
+
 const elements = {
   landingPage: document.querySelector("#landingPage"),
   appView: document.querySelector("#appView"),
-  enterButton: document.querySelector("#enterButton"),
+  readingView: document.querySelector("#readingView"),
+  readingEntryButton: document.querySelector("#readingEntryButton"),
+  vocabularyEntryButton: document.querySelector("#vocabularyEntryButton"),
+  vocabularyHomeButton: document.querySelector("#vocabularyHomeButton"),
+  readingHomeButton: document.querySelector("#readingHomeButton"),
   modeEyebrow: document.querySelector("#modeEyebrow"),
   modeTitle: document.querySelector("#modeTitle"),
   tabButtons: [...document.querySelectorAll(".tab-button")],
@@ -1250,16 +1273,48 @@ const elements = {
   restartButton: document.querySelector("#restartButton"),
   shuffleButton: document.querySelector("#shuffleButton"),
   reactionPop: document.querySelector("#reactionPop"),
-  reactionImage: document.querySelector("#reactionImage")
+  reactionImage: document.querySelector("#reactionImage"),
+  readingTabs: [...document.querySelectorAll(".reading-tab")],
+  readingSetButtons: [...document.querySelectorAll(".reading-set-button")],
+  readingSetPicker: document.querySelector("#readingSetPicker"),
+  readingQuiz: document.querySelector("#readingQuiz"),
+  readingProgress: document.querySelector("#readingProgress"),
+  readingScore: document.querySelector("#readingScore"),
+  readingCategory: document.querySelector("#readingCategory"),
+  readingQuestionCard: document.querySelector("#readingQuestionCard"),
+  readingSetLabel: document.querySelector("#readingSetLabel"),
+  readingNumber: document.querySelector("#readingNumber"),
+  readingPassage: document.querySelector("#readingPassage"),
+  readingQuestion: document.querySelector("#readingQuestion"),
+  readingChoices: document.querySelector("#readingChoices"),
+  readingFeedback: document.querySelector("#readingFeedback"),
+  readingExplanation: document.querySelector("#readingExplanation"),
+  readingAnswerText: document.querySelector("#readingAnswerText"),
+  readingExplanationText: document.querySelector("#readingExplanationText"),
+  readingComplete: document.querySelector("#readingComplete"),
+  readingFinalScore: document.querySelector("#readingFinalScore"),
+  readingFinalMessage: document.querySelector("#readingFinalMessage"),
+  readingRestartButton: document.querySelector("#readingRestartButton"),
+  readingNextButton: document.querySelector("#readingNextButton")
 };
 
 preloadReactionAssets();
 
-elements.enterButton.addEventListener("click", () => {
-  elements.landingPage.hidden = true;
-  elements.appView.hidden = false;
-  startMode("exam");
+elements.vocabularyEntryButton.addEventListener("click", openVocabulary);
+elements.readingEntryButton.addEventListener("click", openReading);
+elements.vocabularyHomeButton.addEventListener("click", showLanding);
+elements.readingHomeButton.addEventListener("click", showLanding);
+
+elements.readingTabs.forEach((button) => {
+  button.addEventListener("click", () => startReadingMode(button.dataset.readingMode));
 });
+
+elements.readingSetButtons.forEach((button) => {
+  button.addEventListener("click", () => startReadingSet(button.dataset.readingSet));
+});
+
+elements.readingRestartButton.addEventListener("click", restartReadingQuiz);
+elements.readingNextButton.addEventListener("click", nextReadingQuestion);
 
 elements.tabButtons.forEach((button) => {
   button.addEventListener("click", () => startMode(button.dataset.tab));
@@ -1277,6 +1332,173 @@ elements.nextButton.addEventListener("click", nextWord);
 elements.restartButton.addEventListener("click", restart);
 elements.shuffleButton.addEventListener("click", reshuffleFromHere);
 
+function showLanding() {
+  reactionSequence += 1;
+  window.clearTimeout(reactionTimer);
+  elements.reactionPop?.classList.remove("show", "correct", "wrong");
+  elements.reactionPop?.setAttribute("aria-hidden", "true");
+  elements.reactionImage?.removeAttribute("src");
+  elements.appView.hidden = true;
+  elements.readingView.hidden = true;
+  elements.landingPage.hidden = false;
+  window.scrollTo({ top: 0, behavior: "auto" });
+}
+
+function openVocabulary() {
+  elements.landingPage.hidden = true;
+  elements.readingView.hidden = true;
+  elements.appView.hidden = false;
+  startMode("exam");
+  window.scrollTo({ top: 0, behavior: "auto" });
+}
+
+function openReading() {
+  elements.landingPage.hidden = true;
+  elements.appView.hidden = true;
+  elements.readingView.hidden = false;
+  startReadingMode("mini");
+  window.scrollTo({ top: 0, behavior: "auto" });
+}
+
+function startReadingMode(mode) {
+  readingState.mode = mode;
+  elements.readingTabs.forEach((button) => {
+    button.classList.toggle("active", button.dataset.readingMode === mode);
+  });
+
+  if (mode === "mini") {
+    elements.readingSetPicker.hidden = false;
+    elements.readingQuiz.hidden = true;
+    return;
+  }
+
+  const pool = readingQuestions.filter((question) => question.category === mode);
+  elements.readingSetPicker.hidden = true;
+  startReadingQuiz(pool, READING_CATEGORY_LABELS[mode] || "독해");
+}
+
+function startReadingSet(set) {
+  const pool = readingQuestions.filter((question) => question.set === set);
+  const setButton = elements.readingSetButtons.find((button) => button.dataset.readingSet === set);
+  const label = setButton?.querySelector("strong")?.textContent || "Mini 모의고사";
+  elements.readingSetPicker.hidden = true;
+  startReadingQuiz(pool, label);
+}
+
+function startReadingQuiz(pool, sessionLabel) {
+  readingState.pool = [...pool];
+  readingState.sessionLabel = sessionLabel;
+  readingState.currentPosition = 0;
+  readingState.score = 0;
+  readingState.locked = false;
+  elements.readingQuiz.hidden = false;
+  elements.readingComplete.hidden = true;
+  elements.readingQuestionCard.hidden = false;
+  elements.readingChoices.hidden = false;
+  elements.readingFeedback.hidden = false;
+  elements.readingExplanation.hidden = true;
+  elements.readingNextButton.hidden = false;
+  renderReadingQuestion();
+}
+
+function renderReadingQuestion() {
+  const question = readingState.pool[readingState.currentPosition];
+  if (!question) {
+    renderReadingComplete();
+    return;
+  }
+
+  readingState.locked = false;
+  elements.readingProgress.textContent = `${readingState.currentPosition + 1} / ${readingState.pool.length}`;
+  elements.readingScore.textContent = String(readingState.score);
+  elements.readingCategory.textContent = READING_CATEGORY_LABELS[question.category] || "독해";
+  elements.readingSetLabel.textContent = question.setLabel;
+  elements.readingNumber.textContent = `No. ${question.number}`;
+  elements.readingPassage.textContent = question.passage;
+  elements.readingQuestion.textContent = question.question;
+  elements.readingFeedback.textContent = "";
+  elements.readingFeedback.className = "reading-feedback";
+  elements.readingExplanation.hidden = true;
+  elements.readingNextButton.disabled = true;
+  elements.readingNextButton.textContent = readingState.currentPosition === readingState.pool.length - 1 ? "결과 보기" : "다음 문제";
+  elements.readingChoices.innerHTML = "";
+
+  question.choices.forEach((choice, index) => {
+    const button = document.createElement("button");
+    button.className = "reading-choice-button";
+    button.type = "button";
+    button.dataset.index = String(index);
+    button.innerHTML = `
+      <span class="reading-choice-index">${String.fromCharCode(65 + index)}</span>
+      <span>${escapeHtml(choice)}</span>
+    `;
+    button.addEventListener("click", () => selectReadingChoice(index, button));
+    elements.readingChoices.append(button);
+  });
+}
+
+function selectReadingChoice(index, button) {
+  if (readingState.locked) return;
+  const question = readingState.pool[readingState.currentPosition];
+  if (!question) return;
+
+  readingState.locked = true;
+  const buttons = [...elements.readingChoices.querySelectorAll(".reading-choice-button")];
+  buttons.forEach((choiceButton) => { choiceButton.disabled = true; });
+  const correctButton = buttons[question.answer];
+  correctButton?.classList.add("correct");
+
+  if (index === question.answer) {
+    readingState.score += 1;
+    button.classList.add("correct");
+    elements.readingFeedback.textContent = "정답입니다.";
+    elements.readingFeedback.className = "reading-feedback good";
+  } else {
+    button.classList.add("wrong");
+    elements.readingFeedback.textContent = "정답을 확인해 보세요.";
+    elements.readingFeedback.className = "reading-feedback bad";
+  }
+
+  const answerLetter = String.fromCharCode(65 + question.answer);
+  elements.readingScore.textContent = String(readingState.score);
+  elements.readingAnswerText.textContent = `정답 ${answerLetter}. ${question.choices[question.answer]}`;
+  elements.readingExplanationText.textContent = question.explanation;
+  elements.readingExplanation.hidden = false;
+  elements.readingNextButton.disabled = false;
+}
+
+function nextReadingQuestion() {
+  if (!readingState.locked) return;
+  if (readingState.currentPosition >= readingState.pool.length - 1) {
+    renderReadingComplete();
+    return;
+  }
+  readingState.currentPosition += 1;
+  renderReadingQuestion();
+  elements.readingQuestionCard.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderReadingComplete() {
+  elements.readingQuestionCard.hidden = true;
+  elements.readingChoices.hidden = true;
+  elements.readingFeedback.hidden = true;
+  elements.readingExplanation.hidden = true;
+  elements.readingComplete.hidden = false;
+  elements.readingNextButton.hidden = true;
+  elements.readingProgress.textContent = `${readingState.pool.length} / ${readingState.pool.length}`;
+  elements.readingFinalScore.textContent = `${readingState.score} / ${readingState.pool.length}`;
+  const percentage = readingState.pool.length ? Math.round((readingState.score / readingState.pool.length) * 100) : 0;
+  elements.readingFinalMessage.textContent = `${readingState.sessionLabel} · ${percentage}%`;
+}
+
+function restartReadingQuiz() {
+  if (readingState.pool.length === 0) {
+    startReadingMode("mini");
+    return;
+  }
+  startReadingQuiz(readingState.pool, readingState.sessionLabel);
+  elements.readingQuiz.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 function startMode(mode) {
   state.activeMode = mode;
   updateModeLabels(mode);
