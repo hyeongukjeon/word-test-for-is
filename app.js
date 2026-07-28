@@ -370,6 +370,497 @@ const REQUEST_WORDS = `
 78|deflection|굴절, 편향|deviation; bending; turning
 79|contraction|수축/축소, 축약형|shrinking; reduction; shortening
 80|suppression|진압, 억제|repression; restraint; control
+81|possible|가능한(하거나 성취할 수 있는), (발생이) 가능한|viable; practical; realistic
+82|available|구할[이용할] 수 있는, (사람들을 만날) 시간[여유]이 있는|for ˈsale; on the ˈmarket; on ˈsale
+83|reachable|도달 가능한, 연락 가능한|
+84|disposable|사용 후 버리게 되어 있는, 일회용의|throwaway; expendable; one-use
+85|loosen|느슨하게[헐겁게] 하다[되다], 늦추다|make slack; slacken; slack
+86|excuse|변명, 이유|forgive; pardon; absolve
+87|release|(갇히거나 구속되어 있는 상태에서) 풀어 주다, 석방[해방]하다|ˌlet sb ˈgo; free; liberate
+88|deliver|(물건·편지 등을) 배달하다, (사람을) 데리고 가다|bring; take; take round
+89|inspired|(자질·능력이) 탁월한, 영감을 받아 한|outstanding; wonderful; marvellous
+90|activated|활성화된|
+91|connected|관련이 있는|linked; united; joined
+92|approached|다가가다[오다], (특히 부탁·제안 등을 하기 위해) 접촉하다|touch; approximate; ˈborder on sth
+93|imitate|모방하다, 본뜨다|emulate; copy; take as a model
+94|suspend|중단하다, 정직시키다/매달다|
+95|eliminate|없애다, 제거[삭제]하다|remove; get rid of; abolish
+96|disregard|무시[묵살]하다, 무시|ignore; take no notice of; take no account of
+97|prevalent|널리 퍼진, 일반적인|
+98|lucrative|수익성이 좋은|profitable; profit-making; gainful
+99|tentative|잠정적인, 머뭇거리는|provisional; unconfirmed; unsettled
+100|affluent|부유한, 풍족한|
+101|stick to|굳게 지키다, 방침을 고수하다|
+102|turn on|켜다, 흥분시키다/공격하다|
+103|look over|…을 대충 훑어보다[살펴보다]|
+104|take after|…을 닮다|
+105|conspicuous|눈에 잘 띄는, 튀는|easily seen; clear; visible
+106|monotonous|단조로운, 지루할 만큼 반복적인|
+107|synonymous|같은[비슷한] 뜻을 갖는, 동의어[유의어]의|
+108|contemptuous|경멸하는, 업신여기는|scathing; mocking; scornful
+109|enclose|(담·울타리 등으로) 두르다[둘러싸다], 에워[둘러]싸다|surround; circle; ring
+110|immerse|(액체 속에) 담그다, ~에 몰두하다/몰두하게 만들다|submerge; plunge; dip
+111|condense|응축하다, 요약하다|
+112|minimize|(특히 좋지 못한 것을) 최소화하다, (덜 중요해 보이도록) 축소하다|keep down; keep at/to a minimum; reduce
+113|defunct|(지금은) 현존하지[행해지지/사용되지] 않는|disused; no longer in use; unused
+114|thwarted|좌절된, 어긋난|
+115|mortified|굴욕감을 느낀, 몹시 당황한|
+116|jostled|(많은 사람들 사이에서) 거칠게 밀치다[떠밀다]|bump into/against; knock into/against; bang into
+117|nestled|포근히 자리 잡은, 안긴|
+118|smeared|마구 바른, 얼룩진|
+119|mustered|(지지 등을 최대한) 모으다, (용기 등을 최대한) 내다[발휘하다]|assemble; bring together; call together
+120|joke|우스개(소리·행동), 농담|quip; prank; pun
+121|play|놀다, (게임·놀이 등을) 하다|drama; comedy; tragedy
+122|relax|쉬다, 긴장을 풀다|
+123|sleep|자다, 잠을 재우다|
+124|displaying|전시하는, 보여 주는|
+125|appearing|…인 듯한(looking)|
+126|exposing|노출하는, 공개하는|
+127|issuing|발행하는, 발표하는|
+128|installed|(장비·가구를) 설치[설비]하다, (컴퓨터에 새 프로그램을) 설치하다|put; position; place
+129|corrected|바로잡은, 수정된|
+130|recovered|(병등에서)회복한|
+131|confirmed|확인된, 확정된|
+132|designed|설계된, 계획된|
+133|organized|(많은 사람들로) 조직화된, 조직적인|well ordered; in order; ordered
+134|composed|구성된, 침착한|
+135|structured|구조[구성, 조직]가 있는|
+136|adjusting|조절|
+137|modifying|(모양·성질·계획·의견 따위를) 변경하는, 수정하는.|
+138|converting|전환하는, 개조하는|
+139|transmitting|송신 [송화, 송파] 하는|
+140|leaping|뛰어오르는, 도약하는|
+141|striking|충돌하는/때리는, 눈에 띄는|
+142|blaming|…을 탓하다, … 책임[때문]으로 보다|criticize; condemn; attack
+143|pushing|미는, 밀치는|
+144|instilling|스며들게 하는, 주입하는|
+145|jeopardizing|위태롭게 하다|threaten; endanger; imperil
+146|disqualifying|자격을 박탈하다, 실격시키다|ban; bar; debar
+147|overthrowing|(지도자·정부를) 타도하다[전복시키다], 타도|downfall; fall; nemesis
+148|bulkiest|부피가 큰[커서 옮기기 힘든], 덩치가 큰|large; big; great
+149|hardiest|(척박한 환경에) 강한[강인한], 내한성의|robust; healthy; fit
+150|nimblest|(동작이) 빠른, 날렵한|agile; lithe; sprightly
+151|brawniest|건장한|strong; as strong as an ox; muscular
+152|obstructed|막힌, 방해받은|
+153|unimpeded|가로막는 것이 없는, 방해받지 않는|unrestricted; unconstrained; unhindered
+154|exasperated|(특히 자기가 어떻게 할 수 없는 상황에 대해) 몹시 화가 난[격분한]|
+155|antagonized|적대감을 불러일으키다|arouse hostility in; alienate; set someone against someone else
+156|insert|삽입하다, 끼워 넣다|
+157|register|등록하다, 신고하다|
+158|confront|맞서다, 직면하다|
+159|implement|시행하다, (흔히 옥외 활동에 쓰이는 간단한) 도구[기구]|tool; utensil; instrument
+160|treaties|조약|agreement; settlement; pact
+161|charters|(권리를 명시한) 헌장, (조직의 원칙·목적 등을 명시한) 헌장|authority; authorization; sanction
+162|archives|공문서, 기록 보관소|
+163|protocols|규약, 절차/의정서|
+164|detained|구금된, 붙잡힌|
+165|impaired|손상된, 제 기능을 못하는|damaged; flawed; faulty
+166|extracted|추출한|
+167|disrupted|방해하다, 지장을 주다|interrupt; upset; throw into confusion
+168|shedding|흘리는, 벗어 버리는|
+169|digesting|소화하는, 이해하는|
+170|divulging|(비밀을) 알려주다[누설하다]|disclose; reveal; make known
+171|inhibiting|억제하는, 방해하는|
+172|awed|경외감을 느끼는, 깊은 인상을 받은|
+173|poked|(손가락 등으로) 쿡 찌르다, (재빨리) 밀다[찌르다]|prod; jab; dig
+174|vowed|맹세했다, 서약했다|
+175|lauded|칭찬하다|praise; extol; hail
+176|abolished|(법률·제도·조직을) 폐지하다|cancel; scrap; dismiss
+177|invalidated|무효화한, 틀렸음을 입증한|
+178|vanquished|패배한, 정복된|
+179|squandered|낭비[허비]하다|waste; misspend; misuse
+180|filial|(부모에 대한) 자식의|dutiful; devoted; loyal
+181|pious|경건한, 독실한|religious; devout; devoted
+182|benign|상냥한, 양성의/무해한|
+183|clerical|사무직의, 성직자의|office; desk; back-room
+184|tarnished|(금속 등이 광택을 잃고) 흐려지다[변색되다], 흐리게 하다|become discoloured; discolour; stain
+185|ransacked|(무엇을 찾아서 어떤 곳을 엉망으로 만들며) 뒤지다[뒤집어엎다]|plunder; pillage; steal from
+186|inundated|침수된, 쇄도한|
+187|discharged|(어떤 장소나 직무에서) 떠나는 것을 허락하다, 해고하다|dismiss; remove; eject
+188|stipulations|조건, 조항|
+189|antecedents|선행 사건, 선조|ancestor; forefather; forebear
+190|repercussions|영향, 파급 효과(주로 부정적)|
+191|circumstances|사정, 상황|
+192|garnering|모으는, 얻는|
+193|beckoning|(오라고) 손짓하다, (손짓으로) 부르다|gesture; signal; wave
+194|contracting|계약하는, 수축하는/병에 걸리는|
+195|sanctioning|승인하는, 제재하는|
+196|ascend|오르다, 올라가다|climb (up); come/go/move up; make one's/its way up
+197|bolster|북돋우다, 강화[개선]하다|pillow; cushion; pad
+198|perturb|(심리적으로) 동요하게 하다|worry; upset; unsettle
+199|upbraid|질책하다, 호되게 나무라다|reprimand; rebuke; reproach
+200|check|확인하다, 점검하다|
+201|claim|주장하다, 요구하다|
+202|serve|(식당 등에서 음식을) 제공하다, (음식을 상에) 차려 주다[내다]|feed; nourish; ˌdish ˈup
+203|honor|영광, 명예/존경|
+204|episode|사건/에피소드, 방송 한 회|
+205|occasion|때/경우, 행사|
+206|affection|애착, 보살핌|fondness; love; liking
+207|appetizing|구미를 동하게 하는|mouth-watering; inviting; tempting
+208|engaging|호감이 가는, 매력적인|charming; appealing; attractive
+209|tempting|솔깃한, 구미가 당기는|enticing; alluring; attractive
+210|alarming|걱정스러운, 두려운|frightening; startling; unnerving
+211|illusory|(실제가 아니라) 환상에 불과한|delusory; delusional; delusive
+212|inherent|내재하는|intrinsic; innate; immanent
+213|immature|미숙한, 치기 어린|unripe; not ripe; not mature
+214|inaccurate|부정확한, 오류가 있는|inexact; imprecise; incorrect
+215|timid|소심한, 용기[자신감]가 없는|easily frightened; lacking courage; fearful
+216|earnest|성실한, 진심 어린|serious; serious-minded; solemn
+217|ecstatic|황홀해 하는, 열광하는|enraptured; elated; transported
+218|prudent|신중한|wise; well judged; judicious
+219|rigorous|철저한, 엄격한|meticulous; punctilious; conscientious
+220|pertinent|(특정한 상황에) 적절한[관련 있는]|relevant; to the point; apposite
+221|verifiable|증명할 수 있는, 입증[검증]할 수 있는|
+222|mandatory|법에 정해진, 의무적인|obligatory; compulsory; binding
+223|fanatical|광신[열광]적인|zealous; extremist; extreme
+224|eloquent|웅변[연설]을 잘 하는, 유창한|persuasive; expressive; articulate
+225|intrusive|방해가 되는, 지나치게 참견하는|
+226|gratuitous|불필요한, 쓸데없는|unjustified; without reason; uncalled for
+227|rake in|(돈 따위를) 긁어 모으다, 벌다.|
+228|pass up|거절하다, 퇴짜놓다|
+229|churn out|대량 생산하다, 잇달아 내다.|
+230|carry over|(다른 상황에서 계속) 이어지다|
+231|renounce|(직함·직책 등을 공식적으로) 포기[단념]하다, 포기를 선언하다|give up; relinquish; abandon
+232|exacerbate|(특히 질병·문제를) 악화시키다|aggravate; make worse; worsen
+233|antagonize|적대감을 불러일으키다|arouse hostility in; alienate; set someone against someone else
+234|incapacitate|(질병 등이) 정상적인 생활을 하지 못하게 만들다|immobilize; paralyse; prostrate
+235|impiety|신앙심이 없음, 경건하지 않음|godlessness; ungodliness; unholiness
+236|travesty|엉터리, 졸렬한 모방|
+237|profanity|욕설, 신성 모독|
+238|ambiguity|애매성, 애매모호함|ambivalence; equivocation; obscurity
+239|oppose|(계획·정책 등에) 반대하다, (시합 등에서 누구와) 겨루다|resist; fight; combat
+240|commit|(그릇된 일·범죄를) 저지르다[범하다], 자살하다|carry out; do; perform
+241|prevent|막다, 예방하다|
+242|tension|(사람들 사이의) 긴장 상태, (필요·이해의 차이로 인한) 긴장[갈등]|aggression; hostility; antagonism
+243|activity|(활발한) 움직임, 활기|action; rush; bustle
+244|exercise|운동, 연습/실행|
+245|practice|실행, 실천|application; exercise; use
+246|accompanied|동행한, 동반한|
+247|maintained|유지된, 관리된|
+248|contained|포함된, 억제된|
+249|included|함유된, 포함된|
+250|exhibited|전시하다, (감정·특질 등을) 보이다[드러내다]|put on display; put on show; display
+251|eliminated|없애다, 제거[삭제]하다|remove; get rid of; abolish
+252|duplicated|복제된, 중복된|
+253|postponed|연기하다, 미루다|put off; delay; defer
+254|embrace|(껴)안다, 포옹하다|hug; take/hold in one's arms; hold
+255|familiarize|익숙하게 하다|make conversant; make familiar; acquaint
+256|standardize|표준화하다|systematize; make consistent; make uniform
+257|accommodate|(살거나 지낼) 공간을 제공하다, 수용하다|house; ˌtake sb ˈin; billet
+258|omitting|빠뜨리다, 누락[제외]시키다|leave out; exclude; fail to include
+259|revoking|폐지[철회/취소]하다|cancel; repeal; rescind
+260|repealing|폐지|
+261|nullifying|(합의·명령 등을) 무효화하다, 효력 없게[무가치하게/무효로] 만들다|annul; declare null and void; render null and void
+262|absorb|(액체·가스 등을) 흡수하다[빨아들이다], (큰 조직의 일부로) 흡수하다|soak up; suck up; draw up/in
+263|squirt|가늘게 뿜다, 찍 짜다|
+264|chase|뒤쫓다, 추적하다|pursue; run after; follow
+265|rinse|(비누를 쓰지 않고 물에) 씻다, (비누 성분을) 씻어 내다[헹구다]|wash; wash out; wash lightly
+266|escorted|호위한, 동행한|
+267|evaluated|평가된, 검토된|
+268|estimated|추정된, 어림잡은|
+269|stigma|오명, (꽃의) 암술머리|shame; disgrace; dishonour
+270|heresy|(특히 종교상의) 이단, (정통적이거나 일반적이 아닌) 이단[이설]|dissension; dissent; dissidence
+271|scruple|양심, (양심의) 가책[거리낌]|hesitate; be reluctant; be loath
+272|menace|위협적인[위험한] 존재, (어조·분위기 등으로 느껴지는) 위협[협박]|threat; ominousness; intimidation
+273|deprivation|(필수적인 것의) 박탈[부족]|poverty; impoverishment; penury
+274|inferiority|열등함|lowliness; inferior status; inferior position
+275|affliction|고통, 고통의 원인|disorder; disease; malady
+276|scarcity|부족, 결핍|
+277|enforced|강요된, 강제적인|compulsory; obligatory; mandatory
+278|dignified|위엄[품위] 있는|stately; noble; courtly
+279|converted|전환[변환]된, 개장[개조]한|
+280|compelled|강요[강제]하다, (필요에 따라) …하게 만들다|force; coerce into; pressurize into
+281|plunged|(앞·아래로 갑자기) 거꾸러지다[거꾸러뜨리다], 급락하다|jump; dive; hurl oneself
+282|retreated|후퇴[철수/퇴각]하다, 멀어져 가다|withdraw; retire; draw back
+283|imparted|(정보·지식 등을) 전하다, (특정한 특성을) 주다|communicate; pass on; convey
+284|degraded|질이 저하된, 타락한|
+285|adamant|요지부동의, 단호한|unshakeable; immovable; inflexible
+286|perpetual|(오랫동안) 끊임없이 계속되는, 빈번한|everlasting; never-ending; eternal
+287|forfeit|몰수당하다, 기권하다|
+288|unleash|(강력한 반응·감정 등을) 촉발시키다[불러일으키다]|let loose; release; free
+289|displace|대신[대체]하다, (살던 곳에서) 쫓아내다|dislodge; dislocate; upset
+290|transmit|전송[송신/방송]하다, 전염시키다|transfer; pass on; hand on
+291|sufficiency|충분한 양|
+292|proficiency|능숙함, 숙련도|
+293|reputability|평판이 좋음, 존경할 만함|
+294|attainability|달성할 수 있음, 획득할 수 있음.|
+295|multiplying|늘어나는, 곱하는|
+296|simmering|약한 불로 끓는, 감정이 끓어오르는|
+297|dwindling|(점차) 줄어드는|
+298|bulging|불거져[튀어] 나온|
+299|terrain|지형, 지역|land; ground; territory
+300|vanguard|(사회적인 운동의) 선봉[선두], (군대 공격대의) 선봉[전위]|forefront; van; advance guard
+301|periphery|(어떤 범위의) 주변, (덜 중요한) 주변부|edge; outer edge; margin
+302|panorama|전경(全景)|view; vista; wide view
+303|strident|(소리가) 귀에 거슬리는[거친], 공격적인|harsh; raucous; rough
+304|fallacious|잘못된, 틀린|erroneous; false; untrue
+305|discordant|조화[화합]를 이루지 못하는, 불협화음의|in disagreement; at variance; at odds
+306|abominable|혐오스러운, 끔찍한|
+307|venerable|공경할 만한, 덕망[신망] 있는|respected; venerated; revered
+308|sagacious|현명한, 판단력이 뛰어난|
+309|assiduous|근면한, 끈기 있는|
+310|inscrutable|(사람·표정이) 불가해한[헤아리기 어려운]|enigmatic; unreadable; impenetrable
+311|decrepit|노후한, 노쇠한|feeble; enfeebled; infirm
+312|aberrant|도리를 벗어난, 일탈적인|abnormal; odd; strange
+313|fractious|성마른, 다루기 힘든|
+314|congruent|일치하는, 합동의|
+315|treat|(특정한 태도로) 대하다[다루다/취급하다/대우하다], 여기다|nurse; dose; process
+316|accept|(기꺼이) 받아들이다, (적절하다고 보아) 받아 주다[수락하다]|face; come to ˈterms with sth; ˈlive with sth
+317|charge|요금을 청구하다, 책임을 맡기다/기소하다|
+318|gap|틈, 격차|
+319|stay|머무르다, 계속 유지하다|
+320|space|(비어 있는·이용할 수 있는) 공간[자리], (비어 있는) 공간[장소]|room; headroom; legroom
+321|pause|잠시 멈추다, 일시 정지하다|
+322|pale|창백한, 핼쑥한|white; grey; sallow
+323|gentle|온화한, 순한|light; mild; kind
+324|capable|…할 수 있는, 유능한|
+325|familiar|익숙한, 잘 아는|
+326|going against the grain|정상적인[자연스러운] 것에 어긋나다/어긋나게 하다|
+327|a blessing in disguise|(문제인 줄 알았던 것이 가져다 준) 뜻밖의 좋은 결과[이득]|
+328|a drop in the bucket|아주 적은 양, 미미한 것|
+329|food for thought|(깊이) 생각할 거리|
+330|combine|결합하다, 합치다|
+331|ripe|익은, 숙성한|mature; ripened; fully developed
+332|bland|특색 없는, 싱거운|
+333|soggy|질척한, 질척거리는|soft and wet; mushy; squashy
+334|coarse|거친, (알갱이·올 등이) 굵은|rough; spiky; leathery
+335|intricate|(여러 부분·내용으로 되어 있어) 복잡한|complex; complicated; convoluted
+336|manifold|(수가) 많은, 여러 가지의|many; numerous; multiple
+337|stingy|(특히 돈에 대해) 인색한[쩨쩨한]|mean; miserly; parsimonious
+338|nominal|명목상의, 이름뿐인|in name/title only; titular; formal
+339|scrawny|뼈만 앙상한, 거죽만 남은|skinny; thin; thin as a rake
+340|elusive|찾기[규정하기/달성하기] 힘든|difficult to catch/find; difficult to track down; evasive
+341|incisive|(사물 인식 능력이) 예리한[날카로운], 기민한|penetrating; acute; sharp
+342|devious|정직하지 못한, 기만적인|
+343|abrasive|(문질러 닦는 데 쓰이는) 연마재의, 거친|grinding; rubbing; polishing
+344|verve|열정, 활기|enthusiasm; vigour; energy
+345|amity|우호, 친선|friendship; friendliness; peace
+346|ennui|따분함, 권태감|boredom; tedium; listlessness
+347|pique|불쾌감, 흥미를 자극하다|
+348|pains|(육체적) 아픔, 통증|ache; suffering; discomfort
+349|habits|버릇, 습관|practice; policy; ways
+350|effects|영향, 효과|
+351|illnesses|병, 아픔|sickness; ˌill ˈhealth; trouble
+352|flexible|신축성[융통성] 있는, 잘 구부러지는|versatile; adjustable; convertible
+353|portable|휴대[이동]가 쉬운, 휴대용의|transportable; movable; mobile
+354|adjustable|조절[조정] 가능한|modifiable; alterable; adaptable
+355|detachable|떼어낼[분리할] 수 있는|
+356|relieves|(불쾌감·고통 등을) 없애[덜어] 주다, 안도하게[후련하게] 하다|alleviate; mitigate; assuage
+357|releases|(갇히거나 구속되어 있는 상태에서) 풀어 주다, 석방[해방]하다|ˌlet sb ˈgo; free; liberate
+358|displays|전시[진열]하다, 내보이다|exhibition; exposition; exhibit
+359|dismisses|(고려할 가치가 없다고) 묵살[일축]하다, (생각·느낌을) 떨쳐 버리다|ˌbrush sb/sth aˈside; ˌshrug sth ˈoff/aˈside; discount
+360|conventions|관습/관례, 협약|
+361|coalitions|연합, 연립|
+362|collapses|붕괴되다, 무너지다|crumble; ˌgive ˈway; disintegrate
+363|clashes|(두 집단 간의 짧은 물리적) 충돌, (의견 차이 등에 의한) 충돌|confrontation; skirmish; brush
+364|warrant|(체포·수색 등을 허락하는) 영장, 보증서|authorization; written order; licence
+365|stamp|우표, (날짜 등이 나오는) 도장[압인]|trample; step; tread
+366|treaty|조약|agreement; settlement; pact
+367|duty|(도덕적·법률적) 의무, 직무|responsibility; obligation; commitment
+368|imported|수입된, 외국에서 들여온|
+369|generated|발생시키다, 만들어 내다|cause; give rise to; lead to
+370|addressed|다루었다, 연설했다/말을 걸었다|
+371|originated|비롯되다, 유래하다|arise; have its origin; derive
+372|belong|제자리[알맞은 위치]에 있다, 소속감을 느끼다|have a place; be located; be situated
+373|adhere|들러붙다, 부착되다|stick; stick fast; cling
+374|migrate|이동하다, 이주[이동]하다|relocate; resettle; move
+375|connect|잇다, 연결하다|attach; join; fasten
+376|admissible|(특히 법정에서) 인정되는|allowable; allowed; permissible
+377|gracious|(특히 아래 사람에게) 자애로운, 품위 있는|courteous; polite; civil
+378|genuine|진짜의, 진품의|authentic; real; actual
+379|judicial|사법[재판]의|legal; judiciary; juridical
+380|deficient|(필수적인 것이) 부족한[결핍된], 결함이 있는|lacking; wanting; defective
+381|mythical|신화 속에 나오는, 가공의|legendary; mythological; fabled
+382|synthetic|(인위적으로) 합성한, 인조의|artificial; fake; false
+383|prophetic|예언의, 예언적인|prescient; predictive; prophetical
+384|bedrock|(튼튼한) 기반, 기반암|substratum; substructure; understructure
+385|reservoir|저수지, 급수장|pool; lake; pond
+386|sediment|침전물, 앙금|dregs; lees; deposit
+387|multitude|아주 많은 수, 다수|a lot; a great/large number; a great/large quantity
+388|hushed|(아무도 말을 하지 않아서) 조용한, (보통 때보다 더) 고요한|
+389|lamented|한탄했다, 애도했다|
+390|repressed|억압된, 억눌린|oppressed; subjugated; subdued
+391|embedded|내장된, 박힌|
+392|disciplines|학문 분야, 규율/훈련|
+393|institutions|기관, 제도|
+394|commissions|위원회, 수수료|
+395|transcending|초월하다|go beyond; rise above; cut across
+396|improvising|즉흥적으로 하는, 임기응변으로 처리하는|
+397|delineating|(상세하게) 기술하다[그리다/설명하다]|describe; set forth; set out
+398|contriving|용케[어떻게든] …하다, (어려운 가운데도) 성사시키다|bring about; engineer; cause to happen
+399|dissipated|흩어진, 방탕한|
+400|mistreated|학대당한|
+401|undetected|아무에게도 들키지[발견되지] 않는|
+402|inactivated|비활성화된, 작동이 멈춘|
+403|depleted|고갈된, 다 써버린|
+404|indulged|마음껏 한, 욕구를 충족시킨|
+405|vandalized|공공 기물을 파손하다|wreck; trash; sabotage
+406|instigating|(보통 공식적으로) 실시[착수]하게 하다, 부추기다|set in motion; put in motion; get under way
+407|calibrating|보정하는, 눈금을 조정하는|
+408|formulating|(세심히) 만들어 내다, (의견을 공들여) 표현[진술]하다|draw up; put together; work out
+409|zest|열정, 열의|enthusiasm; gusto; relish
+410|tang|싸한[톡 쏘는 듯한] 맛[냄새]|flavour; taste; savour
+411|quirk|(사람의 성격에서) 별난 점, 기벽|idiosyncrasy; peculiarity; oddity
+412|sheen|윤(기), 광택|shine; lustre; gleam
+413|extricated|구출된, 곤경에서 벗어난|
+414|extradited|(범죄인을 그 관할국에) 인도하다|deport; hand over; send back
+415|repudiated|거부하다, 물리치다|reject; renounce; abandon
+416|reciprocated|화답했다, 보답했다|
+417|abolition|(법률·제도·조직의) 폐지|scrapping; ending; stopping
+418|coronation|(새 왕의) 대관식|crowning; enthronement; enthroning
+419|abomination|혐오[가증]스러운 것|atrocity; disgrace; horror
+420|differentiation|차별(의 인정), 구별|distinction; distinctness; disparity
+421|nab|(나쁜 짓을 하고 있는 사람을) 붙잡다[체포하다], 가지다|catch; arrest; apprehend
+422|mar|손상시키다, 망치다|
+423|wilt|시들다, 풀이 죽다|
+424|coax|구슬리다, 달래다|persuade; wheedle; cajole
+425|settled|(변화가 없이) 안정적인[안정된], (가정·직장 등에서) 자리를 잡은|
+426|gathered|모인, 모은|
+427|completed|완료한, 완성된|
+428|assign|맡기다, 배정하다|
+429|order|주문하다, 명령하다/순서|
+430|enter|들어가다[오다], (조직·전문적인 직종 등에) 들어가다|ˌgo ˈin; ˌcome ˈin; set ˈfoot in/on sth
+431|labeled|(··· 에) 표를 붙인, (··· 을) 분류한.|
+432|identified|확인된, 식별된|
+433|diagnosed|(질병·문제의 원인을) 진단하다|identify; determine; distinguish
+434|prescribed|처방된, 규정된|
+435|measure|측정하다, 조치/척도|
+436|registry|등기소, 등록소|
+437|balance|균형[평형] (상태), (몸의) 균형|stability; equilibrium; steadiness
+438|invoice|송장(送狀), (물품 대금·작업비 등의) 청구서|bill; account; statement
+439|response|반응, 응답|
+440|reputation|평판, 명성|image; profile; name
+441|impression|인상, 감명|
+442|appearance|(겉)모습, 외모|look; manner; air
+443|purified|정제한(精製~)|
+444|opulent|호화로운, 엄청나게 부유한|luxurious; sumptuous; palatial
+445|pristine|완전 새 것 같은, 아주 깨끗한|immaculate; in perfect condition; perfect
+446|refined|정제된, 제련된|purified; pure; clarified
+447|hasty|성급한, 서두른|
+448|fickle|변덕스러운, 변화가 심한|capricious; changeable; variable
+449|crude|조잡한, 가공하지 않은|
+450|weary|(몹시) 지친, 피곤한|tired; tired out; worn out
+451|fiscal|국가 재정[세제]의|tax; budgetary; revenue
+452|lenient|(처벌·규칙 적용이) 관대한|soft; forgiving; merciful
+453|precise|정확한, 정밀한|exact; accurate; correct
+454|brawny|건장한|strong; as strong as an ox; muscular
+455|irascible|화를 잘 내는|irritable; quick-tempered; short-tempered
+456|prodigal|낭비하는, 방탕한|
+457|let on|(비밀을) 말하다[털어놓다]|
+458|sell out|다 팔리다[매진되다]|
+459|make up|지어내다, 구성하다/화해하다|
+460|talk back|(~에게) 말대답하다|
+461|rely|의지하다, 신뢰하다|depend; count; bank
+462|burn|(불이) 타오르다, 불에 타다|be on ˈfire; smoulder; ˌgo ˈup
+463|trade|거래, 교역|business; market; operation
+464|essential|필수적인, 극히 중요한|vital; crucial; critical
+465|routine|일상, 일과/통상적인|
+466|fluent|(언어, 특히 외국어 실력이) 유창한[능숙한]|articulate; eloquent; expressive
+467|certifying|(특히 서면으로) 증명하다, 자격증[면허증]을 교부하다|verify; guarantee; attest
+468|qualifying|자격을 주는, 한정하는|
+469|authorizing|권한을 부여하는, 허가하는|
+470|guaranteeing|보장하는, 확실히 해 주는|
+471|excluded|제외되는|
+472|dismissed|해고된, 묵살된|
+473|suspended|일시 중단된, 정직된/매달린|
+474|implied|함축된, 은연중의|implicit; indirect; hinted
+475|obligated|의무가 있는, …해야 하는|
+476|restrained|자제하는, 차분한|self-controlled; controlled; self-restrained
+477|defects|결함, (정당·국가 등을) 버리다[떠나다]|fault; flaw; virus
+478|struggles|투쟁[고투]하다, 몸부림치다|strive; try hard; endeavour
+479|dilemmas|딜레마, 진퇴양난|
+480|recall|기억해 내다, 상기하다|remember; recollect; call to mind
+481|retain|(계속) 유지[보유]하다, (계속) 함유[간직]하다|keep; keep possession of; keep hold of
+482|reserve|예약하다, (자리 등을) 따로 잡아[남겨] 두다|save; keep; hold
+483|recollect|(특히 애를 써서) 기억해[생각해] 내다|remember; recall; call to mind
+484|imposes|부과한다, 강요한다|
+485|infringes|위반하다, (법적 권리를) 제한[침해]하다|contravene; violate; transgress
+486|oversteps|(도를) 넘다|
+487|trespasses|무단 침입[출입]하다, 잘못하다|enter without permission; intrude on; encroach on
+488|arid|매우 건조한, 무미건조한|dry; dried up; waterless
+489|limp|기운[활기]이 없는, 축 처진[늘어진]|hobble; walk with a limp; walk with difficulty
+490|vapid|흥미롭지[지적이지] 못한|insipid; uninspired; colourless
+491|dimension|(공간의) 크기, (높이·너비·길이의) 치수|proportions; measurements; extent
+492|substance|물질, 실체|material; matter; stuff
+493|volume|용량, 용적|book; publication; tome
+494|portion|(더 큰 것의) 부분[일부], (음식의) 1인분|helping; serving; part
+495|eminent|저명한, 탁월한|illustrious; distinguished; renowned
+496|enigmatic|수수께끼 같은, 불가사의한|mysterious; puzzling; hard to understand
+497|expansive|툭 트인, 광활한|extensive; sweeping; rolling
+498|extraneous|(특정 상황이나 주제와) 관련 없는|irrelevant; immaterial; beside the point
+499|decree|법령, 칙령|order; edict; command
+500|verdict|(배심원단의) 평결, (숙고·확인 뒤에 내린) 의견[결정]|judgement; adjudication; adjudgement
+501|concord|화합, (성·수·인칭의) 일치|agreement; harmony; accord
+502|mandate|권한, 명령|
+503|yielded|(수익·결과·농작물 등을) 내다[산출/생산하다], 항복[굴복]하다|produce; bear; give
+504|divulged|(비밀을) 알려주다[누설하다]|disclose; reveal; make known
+505|exploited|착취당한, 이용된|
+506|hampered|방해받은, 지장을 받은|
+507|submerged|잠수하다, 물[액체] 속에 잠기다|go under water; dive; sink
+508|condensed|응축[응결]한, 요약한|abridged; shortened; cut
+509|collided|충돌하다, 부딪치다|crash (into); come into collision (with); bang (into)
+510|verified|(진실인지·정확한지) 확인하다, 입증하다|substantiate; confirm; prove
+511|garnered|얻었다, 모았다|
+512|provoked|유발한, 화나게 한|
+513|accredited|승인받은, 공인된|official; appointed; legal
+514|acute|격심한, 극심한|keen; sharp; good
+515|devout|독실한|pious; religious; devoted
+516|opaque|불투명한, 불투명[불분명]한|non-transparent; cloudy; filmy
+517|concise|간결한, 축약된|succinct; short; brief
+518|mangled|짓이기다, 심하게 훼손하다|mutilate; maim; disfigure
+519|corroded|부식시키다, 좀먹다|rust; become rusty; tarnish
+520|exhausted|기진맥진한, 진이 다 빠진|tired out; worn out; weary
+521|abnegated|포기한, 버린|
+522|porous|(구멍이 많은) 다공성[투과성]의|permeable; penetrable; pervious
+523|tangible|분명히 실재하는[보이는], 유형(有形)의|touchable; palpable; tactile
+524|resilient|(충격·부상 등에 대해) 회복력 있는, 탄력 있는|flexible; pliable; pliant
+525|conducive|…에 도움이 되는, …을 촉진하는|
+526|caustic|가성의, 부식성의|corrosive; corroding; mordant
+527|virulent|악성의, 치명적인|poisonous; toxic; venomous
+528|scathing|(비판이) 준열한[통렬한/가차 없는]|devastating; withering; blistering
+529|retentive|잘 잊지 않는|
+530|pretensions|허세, 가식|snobbery; airs; affectation
+531|prerogatives|특권, 특혜|entitlement; right; privilege
+532|reformations|개혁, 개선|
+533|halt|멈추다, 서다|stop; come to a halt; come to a stop
+534|bind|묶다, (붕대 등으로) 감다[싸다]|tie; tie up; fasten (together)
+535|mute|말없는, 음소거하다|
+536|mend|수리하다, 고치다|repair; fix; put back together
+537|secluded|한적한, 외딴|sheltered; private; concealed
+538|anecdotal|입증되지 않은, 일화적인|informal; unreliable; based on hearsay
+539|segregated|분리된, 격리된|
+540|confidential|비밀[기밀]의, 은밀한|private; personal; intimate
+541|scarce|부족한, 드문|
+542|barren|척박한, 황량한|unproductive; infertile; unfruitful
+543|vacuous|공허한, 멍청한|
+544|reclusive|세상을 버린, 은둔한|solitary; secluded; isolated
+545|amplitude|(파동의) 진폭|magnitude; size; volume
+546|lavishness|낭비, 헤픔|
+547|abundance|풍부|profusion; plentifulness; profuseness
+548|evade|피하다, 회피하다|
+549|outwit|…보다 한 수 앞서다|outsmart; out-think; outmanoeuvre
+550|perplex|(무엇을 이해할 수 없어서) 당혹하게 하다|puzzle; baffle; mystify
+551|surpass|능가하다, 뛰어넘다|excel; be better than; be superior to
+552|convoluted|대단히 난해한[복잡한], 나선형의|complicated; complex; involved
+553|overlooked|못 보고 넘어가다, 간과하다|miss; fail to notice; fail to observe
+554|exemplified|전형적인 예가 되다, 예를 들다|typify; epitomize; be a typical example of
+555|undermined|(특히 자신감·권위 등을) 약화시키다, 기반을 약화시키다|erode; weaken; sap
+556|hyperboles|과장법|exaggeration; overstatement; magnification
+557|collocations|연어, 자주 함께 쓰이는 어구|
+558|conundrums|난제, 수수께끼|
+559|euphemisms|완곡 어구[표현]|polite term; substitute; mild alternative
+560|untenable|방어[옹호]될 수 없는|indefensible; undefendable; unarguable
+561|amenable|말을 잘 듣는, …을 잘 받아들이는|compliant; acquiescent; biddable
+562|decorous|점잖은, 예의 바른|proper; seemly; decent
+563|ominous|불길한|threatening; menacing; baleful
+564|obliterate|완전히 없애다, 말살하다|
+565|arrest|체포하다, (무엇의 진행을) 막다[저지하다]|catch; capture; take
+566|rehabilitate|재활 치료하다, 사회 복귀를 돕다|
+567|corroborate|(진술·이론 등을 뒷받침하는 증거나 정보를) 제공하다, 확증[입증]하다|confirm; verify; endorse
+568|predicated|…을 근거로 한, 단정한|
+569|expounded|자세히 설명하다|present; put forward; set forth
+570|emblazoned|(상징·문구 등을) 선명히 새기다[장식하다]|adorn; decorate; ornament
+571|inaugurated|취임한, 개시된|
 `;
 
 const EXAMPLE_SENTENCES = {
@@ -660,7 +1151,7 @@ const MODE_CONFIG = {
   request: {
     eyebrow: "Requested Words",
     title: "인서요청추가단어",
-    description: "이미지 선지 80개"
+    description: "이미지 선지 571개"
   },
   bookmarks: {
     eyebrow: "Saved Words",
