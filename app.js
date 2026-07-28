@@ -1121,16 +1121,20 @@ const BOOKMARK_STORAGE_KEY = "word-test-for-is-bookmarks-v1";
 
 const REACTION_ASSETS = {
   correct: [
-    "Photo/Riku/KakaoTalk_20260625_145833162.jpg",
-    "Photo/Riku/KakaoTalk_20260625_145833162_01.jpg"
+    "Photo/Correct Answer/KakaoTalk_20260625_145833162.jpg",
+    "Photo/Correct Answer/KakaoTalk_20260625_145833162_01.jpg",
+    "Photo/Correct Answer/스크린샷 2026-07-28 170333.png",
+    "Photo/Correct Answer/스크린샷 2026-07-28 170422.png"
   ],
   wrong: [
-    "Photo/JH/KakaoTalk_20260625_145833162_02.jpg",
-    "Photo/JH/KakaoTalk_20260625_145833162_03.jpg"
+    "Photo/Wrong Answer/15392582_1172855_1953_org.jpg",
+    "Photo/Wrong Answer/KakaoTalk_20260625_145833162_02.jpg",
+    "Photo/Wrong Answer/KakaoTalk_20260625_145833162_03.jpg"
   ]
 };
 
 let reactionTimer = 0;
+let reactionSequence = 0;
 
 const MODE_CONFIG = {
   exam: {
@@ -1403,14 +1407,19 @@ function showReaction(type) {
   if (!elements.reactionPop || !elements.reactionImage || assets.length === 0) return;
 
   const image = assets[Math.floor(Math.random() * assets.length)];
+  const sequence = ++reactionSequence;
   window.clearTimeout(reactionTimer);
   elements.reactionPop.classList.remove("show", "correct", "wrong");
   void elements.reactionPop.offsetWidth;
   elements.reactionImage.src = encodeURI(image);
+  elements.reactionPop.setAttribute("aria-hidden", "false");
   elements.reactionPop.classList.add(type, "show");
 
   reactionTimer = window.setTimeout(() => {
+    if (sequence !== reactionSequence) return;
     elements.reactionPop.classList.remove("show", "correct", "wrong");
+    elements.reactionPop.setAttribute("aria-hidden", "true");
+    elements.reactionImage.removeAttribute("src");
   }, 1050);
 }
 
