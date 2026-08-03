@@ -1169,6 +1169,11 @@ const MODE_CONFIG = {
     title: "인서요청추가단어",
     description: "이미지 선지 571개"
   },
+  "bookmark-test": {
+    eyebrow: "Bookmark Quiz",
+    title: "북마크 테스트",
+    description: "저장한 단어만 테스트"
+  },
   bookmarks: {
     eyebrow: "Saved Words",
     title: "북마크",
@@ -1253,7 +1258,6 @@ const elements = {
   tabButtons: [...document.querySelectorAll(".tab-button")],
   bookmarkPanel: document.querySelector("#bookmarkPanel"),
   bookmarkList: document.querySelector("#bookmarkList"),
-  bookmarkQuizButton: document.querySelector("#bookmarkQuizButton"),
   emptyBookmarks: document.querySelector("#emptyBookmarks"),
   quizPanel: document.querySelector("#quizPanel"),
   progressText: document.querySelector("#progressText"),
@@ -1318,13 +1322,6 @@ elements.readingNextButton.addEventListener("click", nextReadingQuestion);
 
 elements.tabButtons.forEach((button) => {
   button.addEventListener("click", () => startMode(button.dataset.tab));
-});
-
-elements.bookmarkQuizButton.addEventListener("click", () => {
-  const bookmarks = getBookmarkedWords();
-  if (bookmarks.length > 0) {
-    startQuiz("bookmarks", bookmarks);
-  }
 });
 
 elements.bookmarkButton.addEventListener("click", toggleCurrentBookmark);
@@ -1506,6 +1503,7 @@ function startMode(mode) {
 
   if (mode === "bookmarks") {
     renderBookmarks();
+    elements.shuffleButton.hidden = true;
     elements.bookmarkPanel.hidden = false;
     elements.quizPanel.hidden = true;
     return;
@@ -1518,7 +1516,8 @@ function startMode(mode) {
     exam: shuffle(allWords).slice(0, 30),
     high: highSchoolWords,
     teps: tepsWords,
-    request: requestWords
+    request: requestWords,
+    "bookmark-test": getBookmarkedWords()
   };
 
   startQuiz(mode, poolByMode[mode] || allWords);
@@ -1535,7 +1534,8 @@ function startQuiz(mode, pool) {
   state.locked = false;
   state.wrongOptionKeys = new Set();
 
-  elements.bookmarkPanel.hidden = mode !== "bookmarks";
+  elements.bookmarkPanel.hidden = true;
+  elements.shuffleButton.hidden = false;
   elements.quizPanel.hidden = false;
   updateModeLabels(mode);
   updateTabs(mode);
@@ -1821,8 +1821,8 @@ function restart() {
     startQuiz("exam", shuffle(allWords).slice(0, 30));
     return;
   }
-  if (state.activeMode === "bookmarks") {
-    startQuiz("bookmarks", getBookmarkedWords());
+  if (state.activeMode === "bookmark-test") {
+    startQuiz("bookmark-test", getBookmarkedWords());
     return;
   }
 
@@ -1877,7 +1877,6 @@ function renderBookmarks() {
   const bookmarks = getBookmarkedWords();
   elements.bookmarkList.innerHTML = "";
   elements.emptyBookmarks.hidden = bookmarks.length > 0;
-  elements.bookmarkQuizButton.disabled = bookmarks.length === 0;
 
   bookmarks.forEach((entry) => {
     const card = document.createElement("article");
