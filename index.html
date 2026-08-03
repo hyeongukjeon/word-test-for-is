@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#fff7c7">
   <title>Test for IS</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="styles.css?v=20260728-reading1">
+  <link rel="stylesheet" href="styles.css?v=20260803-navigation2">
 </head>
 <body>
   <main class="app-shell">
@@ -42,9 +42,6 @@
           <h1 id="modeTitle">Word Test</h1>
         </div>
         <div class="top-actions">
-          <button class="icon-button" id="vocabularyHomeButton" type="button" aria-label="첫 화면" title="첫 화면">
-            <span aria-hidden="true">⌂</span>
-          </button>
           <button class="icon-button" id="shuffleButton" type="button" aria-label="단어 순서 섞기" title="단어 순서 섞기">
             <span aria-hidden="true">↻</span>
           </button>
@@ -95,7 +92,7 @@
         </section>
 
         <nav class="bottom-actions">
-          <button class="secondary-button" id="restartButton" type="button">처음부터</button>
+          <button class="secondary-button" id="previousButton" type="button" disabled>이전 문제</button>
           <button class="primary-button" id="nextButton" type="button" disabled>다음 단어</button>
         </nav>
       </section>
@@ -103,9 +100,7 @@
 
     <section class="reading-view" id="readingView" hidden>
       <header class="reading-header">
-        <button class="icon-button" id="readingHomeButton" type="button" aria-label="첫 화면" title="첫 화면">
-          <span aria-hidden="true">⌂</span>
-        </button>
+        <div class="reading-header-home-slot" aria-hidden="true"></div>
         <div>
           <p class="reading-eyebrow">READING TEST</p>
           <h1>독해 테스트</h1>
@@ -171,6 +166,10 @@
     </section>
   </main>
 
+  <button class="icon-button global-home-button" id="globalHomeButton" type="button" aria-label="첫 화면" title="첫 화면" hidden>
+    <span aria-hidden="true">⌂</span>
+  </button>
+
   <div class="reaction-pop" id="reactionPop" aria-hidden="true">
     <div class="reaction-glow"></div>
     <img id="reactionImage" alt="" decoding="async">
@@ -178,6 +177,6 @@
 
   <script src="teps-data.js?v=20260728-reading1"></script>
   <script src="reading-data.js?v=20260728-reading1"></script>
-  <script src="app.js?v=20260803-bookmark-tabs1"></script>
+  <script src="app.js?v=20260803-navigation2"></script>
 </body>
 </html>

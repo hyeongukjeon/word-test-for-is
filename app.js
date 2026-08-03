@@ -1223,7 +1223,8 @@ const state = {
   score: 0,
   streak: 0,
   answered: 0,
-  wrongOptionKeys: new Set()
+  wrongOptionKeys: new Set(),
+  results: new Map()
 };
 
 const READING_CATEGORY_LABELS = {
@@ -1251,8 +1252,7 @@ const elements = {
   readingView: document.querySelector("#readingView"),
   readingEntryButton: document.querySelector("#readingEntryButton"),
   vocabularyEntryButton: document.querySelector("#vocabularyEntryButton"),
-  vocabularyHomeButton: document.querySelector("#vocabularyHomeButton"),
-  readingHomeButton: document.querySelector("#readingHomeButton"),
+  globalHomeButton: document.querySelector("#globalHomeButton"),
   modeEyebrow: document.querySelector("#modeEyebrow"),
   modeTitle: document.querySelector("#modeTitle"),
   tabButtons: [...document.querySelectorAll(".tab-button")],
@@ -1260,6 +1260,7 @@ const elements = {
   bookmarkList: document.querySelector("#bookmarkList"),
   emptyBookmarks: document.querySelector("#emptyBookmarks"),
   quizPanel: document.querySelector("#quizPanel"),
+  wordStage: document.querySelector(".word-stage"),
   progressText: document.querySelector("#progressText"),
   scoreText: document.querySelector("#scoreText"),
   streakText: document.querySelector("#streakText"),
@@ -1274,7 +1275,7 @@ const elements = {
   synonyms: document.querySelector("#synonyms"),
   exampleSentence: document.querySelector("#exampleSentence"),
   nextButton: document.querySelector("#nextButton"),
-  restartButton: document.querySelector("#restartButton"),
+  previousButton: document.querySelector("#previousButton"),
   shuffleButton: document.querySelector("#shuffleButton"),
   reactionPop: document.querySelector("#reactionPop"),
   reactionImage: document.querySelector("#reactionImage"),
@@ -1306,8 +1307,7 @@ preloadReactionAssets();
 
 elements.vocabularyEntryButton.addEventListener("click", openVocabulary);
 elements.readingEntryButton.addEventListener("click", openReading);
-elements.vocabularyHomeButton.addEventListener("click", showLanding);
-elements.readingHomeButton.addEventListener("click", showLanding);
+elements.globalHomeButton.addEventListener("click", showLanding);
 
 elements.readingTabs.forEach((button) => {
   button.addEventListener("click", () => startReadingMode(button.dataset.readingMode));
@@ -1326,7 +1326,7 @@ elements.tabButtons.forEach((button) => {
 
 elements.bookmarkButton.addEventListener("click", toggleCurrentBookmark);
 elements.nextButton.addEventListener("click", nextWord);
-elements.restartButton.addEventListener("click", restart);
+elements.previousButton.addEventListener("click", previousWord);
 elements.shuffleButton.addEventListener("click", reshuffleFromHere);
 
 function showLanding() {
@@ -1335,6 +1335,7 @@ function showLanding() {
   elements.reactionPop?.classList.remove("show", "correct", "wrong");
   elements.reactionPop?.setAttribute("aria-hidden", "true");
   elements.reactionImage?.removeAttribute("src");
+  elements.globalHomeButton.hidden = true;
   elements.appView.hidden = true;
   elements.readingView.hidden = true;
   elements.landingPage.hidden = false;
@@ -1342,6 +1343,7 @@ function showLanding() {
 }
 
 function openVocabulary() {
+  elements.globalHomeButton.hidden = false;
   elements.landingPage.hidden = true;
   elements.readingView.hidden = true;
   elements.appView.hidden = false;
@@ -1350,6 +1352,7 @@ function openVocabulary() {
 }
 
 function openReading() {
+  elements.globalHomeButton.hidden = false;
   elements.landingPage.hidden = true;
   elements.appView.hidden = true;
   elements.readingView.hidden = false;
@@ -1533,6 +1536,7 @@ function startQuiz(mode, pool) {
   state.answered = 0;
   state.locked = false;
   state.wrongOptionKeys = new Set();
+  state.results = new Map();
 
   elements.bookmarkPanel.hidden = true;
   elements.shuffleButton.hidden = false;
@@ -1560,13 +1564,14 @@ function renderRound() {
     return;
   }
 
-  const entry = state.sessionPool[state.order[state.currentPosition]];
-  const options = buildOptions(entry);
+  const savedResult = state.results.get(state.currentPosition);
+  const entry = savedResult?.entry || state.sessionPool[state.order[state.currentPosition]];
+  const options = savedResult?.options || buildOptions(entry);
 
   state.currentRound = { entry, options };
-  state.attempt = 1;
-  state.locked = false;
-  state.wrongOptionKeys = new Set();
+  state.attempt = savedResult?.attempt || 1;
+  state.locked = Boolean(savedResult);
+  state.wrongOptionKeys = new Set(savedResult?.wrongOptionKeys || []);
 
   elements.progressText.textContent = `${state.currentPosition + 1} / ${state.sessionPool.length}`;
   elements.scoreText.textContent = String(state.score);
@@ -1576,6 +1581,7 @@ function renderRound() {
   elements.attemptText.textContent = "첫 번째 선택";
   elements.feedback.textContent = "";
   elements.feedback.className = "feedback";
+  elements.previousButton.disabled = state.currentPosition === 0;
   elements.nextButton.disabled = true;
   elements.details.hidden = true;
   updateBookmarkButton(entry);
@@ -1590,9 +1596,24 @@ function renderRound() {
       <span class="choice-index">${index + 1}</span>
       <span class="choice-meaning">${escapeHtml(option.label)}</span>
     `;
+    if (savedResult) {
+      button.disabled = true;
+      button.classList.toggle("wrong", state.wrongOptionKeys.has(option.key));
+      button.classList.toggle("correct", option.key === entry.key);
+    }
     button.addEventListener("click", () => selectOption(option, button));
     elements.choices.append(button);
   });
+
+  if (savedResult) {
+    elements.attemptText.textContent = "정답 확인";
+    elements.feedback.textContent = savedResult.wasCorrect
+      ? (savedResult.attempt === 1 ? "정답입니다." : "두 번째 기회에서 정답입니다.")
+      : "정답을 확인했어요.";
+    elements.feedback.className = savedResult.wasCorrect ? "feedback good" : "feedback bad";
+    elements.nextButton.disabled = false;
+    revealDetails();
+  }
 }
 
 function renderEmptyQuiz() {
@@ -1606,6 +1627,7 @@ function renderEmptyQuiz() {
   elements.choices.innerHTML = "";
   elements.feedback.textContent = "";
   elements.details.hidden = true;
+  elements.previousButton.disabled = true;
   elements.nextButton.disabled = true;
 }
 
@@ -1719,6 +1741,13 @@ function showReaction(type) {
 
 function finishRound(wasCorrect) {
   state.locked = true;
+  state.results.set(state.currentPosition, {
+    wasCorrect,
+    entry: state.currentRound.entry,
+    options: state.currentRound.options,
+    attempt: state.attempt,
+    wrongOptionKeys: [...state.wrongOptionKeys]
+  });
   state.answered += 1;
   elements.attemptText.textContent = "정답 확인";
   if (wasCorrect) {
@@ -1812,21 +1841,24 @@ function nextWord() {
   if (state.currentPosition >= state.order.length) {
     state.currentPosition = 0;
     state.order = shuffle(state.sessionPool.map((_, index) => index));
+    state.score = 0;
+    state.streak = 0;
+    state.answered = 0;
+    state.results.clear();
   }
   renderRound();
+  scrollToWordStage();
 }
 
-function restart() {
-  if (state.activeMode === "exam") {
-    startQuiz("exam", shuffle(allWords).slice(0, 30));
-    return;
-  }
-  if (state.activeMode === "bookmark-test") {
-    startQuiz("bookmark-test", getBookmarkedWords());
-    return;
-  }
+function previousWord() {
+  if (state.currentPosition <= 0) return;
+  state.currentPosition -= 1;
+  renderRound();
+  scrollToWordStage();
+}
 
-  startMode(state.activeMode);
+function scrollToWordStage() {
+  elements.wordStage?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function reshuffleFromHere() {
@@ -1834,7 +1866,13 @@ function reshuffleFromHere() {
   const currentIndex = state.order[state.currentPosition];
   const remaining = state.order.filter((index) => index !== currentIndex);
   state.order = [currentIndex, ...shuffle(remaining)];
+  state.currentPosition = 0;
+  state.score = 0;
+  state.streak = 0;
+  state.answered = 0;
+  state.results.clear();
   renderRound();
+  scrollToWordStage();
 }
 
 function toggleCurrentBookmark() {

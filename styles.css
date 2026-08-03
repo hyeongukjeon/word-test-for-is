@@ -839,3 +839,25 @@ h1 {
   .reading-passage { font-size: 1.01rem; }
   .reading-choice-button { padding-inline: 10px; font-size: .95rem; }
 }
+/* Persistent navigation */
+.secondary-button:disabled {
+  opacity: 0.46;
+  cursor: default;
+}
+
+.global-home-button {
+  position: fixed;
+  top: calc(18px + env(safe-area-inset-top, 0px));
+  left: max(18px, calc((100vw - 480px) / 2 + 18px));
+  z-index: 50;
+}
+
+.top-panel > div:first-child {
+  padding-left: 56px;
+}
+
+@media (min-width: 700px) {
+  .global-home-button {
+    top: 42px;
+  }
+}
