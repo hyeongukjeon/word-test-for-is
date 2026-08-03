@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#fff7c7">
   <title>Test for IS</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="styles.css?v=20260803-navigation2">
+  <link rel="stylesheet" href="styles.css?v=20260803-navigation3">
 </head>
 <body>
   <main class="app-shell">
@@ -37,6 +37,9 @@
 
     <section class="app-view" id="appView" hidden>
       <header class="top-panel">
+        <button class="icon-button" id="vocabularyHomeButton" type="button" aria-label="첫 화면" title="첫 화면">
+          <span aria-hidden="true">⌂</span>
+        </button>
         <div>
           <p class="eyebrow" id="modeEyebrow">Mock Test</p>
           <h1 id="modeTitle">Word Test</h1>
@@ -100,7 +103,9 @@
 
     <section class="reading-view" id="readingView" hidden>
       <header class="reading-header">
-        <div class="reading-header-home-slot" aria-hidden="true"></div>
+        <button class="icon-button" id="readingHomeButton" type="button" aria-label="첫 화면" title="첫 화면">
+          <span aria-hidden="true">⌂</span>
+        </button>
         <div>
           <p class="reading-eyebrow">READING TEST</p>
           <h1>독해 테스트</h1>
@@ -166,10 +171,6 @@
     </section>
   </main>
 
-  <button class="icon-button global-home-button" id="globalHomeButton" type="button" aria-label="첫 화면" title="첫 화면" hidden>
-    <span aria-hidden="true">⌂</span>
-  </button>
-
   <div class="reaction-pop" id="reactionPop" aria-hidden="true">
     <div class="reaction-glow"></div>
     <img id="reactionImage" alt="" decoding="async">
@@ -177,6 +178,6 @@
 
   <script src="teps-data.js?v=20260728-reading1"></script>
   <script src="reading-data.js?v=20260728-reading1"></script>
-  <script src="app.js?v=20260803-navigation2"></script>
+  <script src="app.js?v=20260803-navigation3"></script>
 </body>
 </html>

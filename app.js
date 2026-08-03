@@ -1252,7 +1252,8 @@ const elements = {
   readingView: document.querySelector("#readingView"),
   readingEntryButton: document.querySelector("#readingEntryButton"),
   vocabularyEntryButton: document.querySelector("#vocabularyEntryButton"),
-  globalHomeButton: document.querySelector("#globalHomeButton"),
+  vocabularyHomeButton: document.querySelector("#vocabularyHomeButton"),
+  readingHomeButton: document.querySelector("#readingHomeButton"),
   modeEyebrow: document.querySelector("#modeEyebrow"),
   modeTitle: document.querySelector("#modeTitle"),
   tabButtons: [...document.querySelectorAll(".tab-button")],
@@ -1307,7 +1308,8 @@ preloadReactionAssets();
 
 elements.vocabularyEntryButton.addEventListener("click", openVocabulary);
 elements.readingEntryButton.addEventListener("click", openReading);
-elements.globalHomeButton.addEventListener("click", showLanding);
+elements.vocabularyHomeButton.addEventListener("click", showLanding);
+elements.readingHomeButton.addEventListener("click", showLanding);
 
 elements.readingTabs.forEach((button) => {
   button.addEventListener("click", () => startReadingMode(button.dataset.readingMode));
@@ -1335,7 +1337,6 @@ function showLanding() {
   elements.reactionPop?.classList.remove("show", "correct", "wrong");
   elements.reactionPop?.setAttribute("aria-hidden", "true");
   elements.reactionImage?.removeAttribute("src");
-  elements.globalHomeButton.hidden = true;
   elements.appView.hidden = true;
   elements.readingView.hidden = true;
   elements.landingPage.hidden = false;
@@ -1343,7 +1344,6 @@ function showLanding() {
 }
 
 function openVocabulary() {
-  elements.globalHomeButton.hidden = false;
   elements.landingPage.hidden = true;
   elements.readingView.hidden = true;
   elements.appView.hidden = false;
@@ -1352,7 +1352,6 @@ function openVocabulary() {
 }
 
 function openReading() {
-  elements.globalHomeButton.hidden = false;
   elements.landingPage.hidden = true;
   elements.appView.hidden = true;
   elements.readingView.hidden = false;
